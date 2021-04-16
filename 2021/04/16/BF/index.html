@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>我的第一篇博客文章 | Hexo</title>
+  <title>BF | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C代码：#include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  C++代码：#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  JAVA代码：public class hello">
+  <meta name="description" content="一、BF算法暴力匹配(BF)算法是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符与模式串的T的第一个字符进行匹配，若相等，则继续比较S的第二个和T的第二个字符；若不等，则继续比较S的第二个字符和T的第一个字符，依次比较，直到得到最后的匹配结果。  二、具体实现下标从0开始匹配int BF(const char *str,const char *sub,int p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="BF">
+<meta property="og:url" content="http://example.com/2021/04/16/BF/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="C代码：#include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  C++代码：#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  JAVA代码：public class hello">
+<meta property="og:description" content="一、BF算法暴力匹配(BF)算法是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符与模式串的T的第一个字符进行匹配，若相等，则继续比较S的第二个和T的第二个字符；若不等，则继续比较S的第二个字符和T的第一个字符，依次比较，直到得到最后的匹配结果。  二、具体实现下标从0开始匹配int BF(const char *str,const char *sub,int p">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-11T03:16:42.000Z">
-<meta property="article:modified_time" content="2021-04-16T07:44:25.224Z">
+<meta property="article:published_time" content="2021-04-16T07:01:42.000Z">
+<meta property="article:modified_time" content="2021-04-16T08:11:12.059Z">
 <meta property="article:author" content="cuiyankun">
 <meta name="twitter:card" content="summary">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BF" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      BF
     </h1>
   
 
         
-        <a href="/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2021-04-11T03:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
+        <a href="/2021/04/16/BF/" class="archive-article-date">
+  	<time datetime="2021-04-16T07:01:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -189,7 +189,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">59字</span>
+        <span class="post-count">754字</span>
       </span>
     </span>
 
@@ -198,7 +198,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -211,13 +211,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>代码：<br>#include&lt;stdio.h&gt;<br>int main()<br>{<br>printf(“hello world”)<br>return 0;<br>}</p>
+        <h1 id="一、BF算法"><a href="#一、BF算法" class="headerlink" title="一、BF算法"></a>一、BF算法</h1><p>暴力匹配(BF)算法是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符<br>与模式串的T的第一个字符进行匹配，若相等，则继续比较S的第二个和T的第二个字符；若不等，则继续比较S<br>的第二个字符和T的第一个字符，依次比较，直到得到最后的匹配结果。</p>
 <hr>
-<h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><p>代码：<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int main()<br>{<br>cout&lt;&lt;”hello world”;<br>return 0;<br>}</p>
+<h1 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h1><p>下标从0开始匹配<br>int BF(const char *str,const char *sub,int pos)<br>{<br>    assert(str!=NULL&amp;&amp;sub!=NULL);<br>    int i=pos;//用i来记录S中字符的位置<br>    int j=0;//用j来记录T中字符的位置<br>    int lens=strlen(str);<br>    int lensub=strlen(sub);<br>    //当S不为空并且T不为空时，逐个进行字符的比较<br>    while(j&lt;lensub&amp;&amp;i&lt;lens)<br>    {<br>        if(str[i]==sub[i])<br>        //当S中第i个字符与T中第j个字符相等时，i向后移一个，j向后移一个<br>        {<br>            i++;<br>            j++;<br>        }<br>        else<br>        //当S中第i个字符与T中第i个字符不相等时，i回到前一个位置的下一个位置，j回到0号位置<br>        {<br>            i=i-j+1;<br>            j=0;<br>        }<br>    }<br>    if(j&gt;=lensub)   //当j走完T的长度时，也就说明T在S中匹配成功<br>    {<br>        return i-j;     //此时返回字串在主串中的下标位置，此时i在该返回下标位置+j的长度位置，所以返回i-j。<br>    }<br>    else return -1;  //匹配失败，则返回-1，因为-1下标不存在，不能返回0下标<br>}<br>下标从任意位置开始匹配<br>int BF(SString S,SString T,int pos)<br>{<br>  int i,j;<br>  i=pos;<br>  j=1;<br>  while(i&lt;=S.lenth&amp;&amp;j&lt;=T.lenth) //当检索位置i,j同时小于主串与子串长度时，执行循环<br>   {<br>    if(S.ch[i-1]==T.ch[i-1])<br>     {<br>      i++;<br>      j++;<br>     }<br>    else<br>    {<br>    i=i-j+2;<br>    j=1;<br>    }<br>if(j&gt;T.lenth)<br>   return i-T.lenth; //j&gt;T.lenth匹配成功<br>else<br>    return 0;  //否则匹配失败<br>}</p>
 <hr>
-<h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><p>代码：<br>public class helloworld{<br>      public static void main(String args[]{<br>             System.out.println(“hello world”);<br>    }<br>}</p>
-<hr>
-<h2 id="PYTHON"><a href="#PYTHON" class="headerlink" title="PYTHON"></a>PYTHON</h2><p>代码：<br>print(“hello world”)</p>
+<h1 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h1><p>题目描述<br>首先输入一行字符串，然会在输入一行子串，输出子串首位在原串的位置</p>
+<p>样例输入<br>adsffgshgh<br>ffgsh<br>样例输出<br>4</p>
+<p>代码：<br>#include&lt;stdio.h&gt;<br>#include&lt;stdlib.h&gt;<br>#include&lt;string.h&gt;<br>#define MAXSIZE 100<br>#define OK 1<br>#define ERROR 0<br>typedef struct<br>{<br> char ch[MAXSIZE+1];<br> int length;<br>}SString;           //定义串结构<br>int Index_BF(SString S,SString T,int pos);<br>int main()<br>{<br> int pos = 1,pos_i;<br> SString S,T;<br> gets(S.ch);<br> S.length = strlen(S.ch);<br> gets(T.ch);<br> T.length = strlen(T.ch);<br> pos_i = Index_BF(S,T,pos);      //调用函数获得第一次匹配到的位置<br> printf(“%d”,pos_i);<br> return 0;<br>}<br>int Index_BF(SString S,SString T,int pos)<br>{<br> int i,j;<br> i = pos;<br> j = 1;<br> while(i&lt;=S.length &amp;&amp; j&lt;=T.length)    //当检索位置i,j同时小于主串与子串长度时，执行循环<br> {<br>  if(S.ch[i-1] == T.ch[j-1])<br>  {<br>   i++;<br>   j++;<br>  }<br>  else<br>  {<br>   i = i-j+2;       //匹配不成功，主串回溯到i-j+2,比较后继字符<br>   j = 1;         //匹配不成功，子串回溯到j = 1<br>  }<br> }<br> if(j&gt;T.length)<br>  return i-T.length;      //j&gt;T.length匹配成功<br> else<br>  return 0;        //否则，匹配失败<br>}</p>
 <hr>
 
       
@@ -308,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/16/BF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +322,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/14/%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/16/KMP/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          排序
+          KMP
         
       </div>
     </a>
   
   
-    <a href="/2021/04/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2021/04/16/DFS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DFS</div>
       <i class="icon-circle-right"></i>
     </a>
   

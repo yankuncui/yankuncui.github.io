@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>我的第一篇博客文章 | Hexo</title>
+  <title>KMP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C代码：#include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  C++代码：#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  JAVA代码：public class hello">
+  <meta name="description" content="一、KMP算法在KMP算法中，对于每一个模式串都会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，以减少匹配次数，这样就很好的解决了BF算法的缺陷比如，当匹配失败后，最好是能够将模式字串尽量的右移和主串进行匹配，右移的距离在KMP算法中是这样计算的：在已经匹配的字串中，找到最长的相同的前缀和后缀，然后移动使他们重叠，这个位置就是j要回退的位置，这样j就不用每一次都回到0号位置了，每一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="KMP">
+<meta property="og:url" content="http://example.com/2021/04/16/KMP/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="C代码：#include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  C++代码：#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  JAVA代码：public class hello">
+<meta property="og:description" content="一、KMP算法在KMP算法中，对于每一个模式串都会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，以减少匹配次数，这样就很好的解决了BF算法的缺陷比如，当匹配失败后，最好是能够将模式字串尽量的右移和主串进行匹配，右移的距离在KMP算法中是这样计算的：在已经匹配的字串中，找到最长的相同的前缀和后缀，然后移动使他们重叠，这个位置就是j要回退的位置，这样j就不用每一次都回到0号位置了，每一">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-11T03:16:42.000Z">
-<meta property="article:modified_time" content="2021-04-16T07:44:25.224Z">
+<meta property="article:published_time" content="2021-04-16T07:51:33.000Z">
+<meta property="article:modified_time" content="2021-04-16T08:09:57.801Z">
 <meta property="article:author" content="cuiyankun">
 <meta name="twitter:card" content="summary">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-KMP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      KMP
     </h1>
   
 
         
-        <a href="/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2021-04-11T03:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
+        <a href="/2021/04/16/KMP/" class="archive-article-date">
+  	<time datetime="2021-04-16T07:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -189,7 +189,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">59字</span>
+        <span class="post-count">607字</span>
       </span>
     </span>
 
@@ -198,7 +198,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -211,13 +211,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>代码：<br>#include&lt;stdio.h&gt;<br>int main()<br>{<br>printf(“hello world”)<br>return 0;<br>}</p>
+        <h1 id="一、KMP算法"><a href="#一、KMP算法" class="headerlink" title="一、KMP算法"></a>一、KMP算法</h1><p>在KMP算法中，对于每一个模式串都会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，<br>以减少匹配次数，这样就很好的解决了BF算法的缺陷比如，当匹配失败后，最好是能够将模式字串尽量的右移<br>和主串进行匹配，右移的距离在KMP算法中是这样计算的：在已经匹配的字串中，找到最长的相同的前缀和后缀，<br>然后移动使他们重叠，这个位置就是j要回退的位置，这样j就不用每一次都回到0号位置了，每一次j回退的位置存<br>储在一个数组里，称之为next数组。</p>
 <hr>
-<h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><p>代码：<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int main()<br>{<br>cout&lt;&lt;”hello world”;<br>return 0;<br>}</p>
+<h1 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h1><p>获取next数组<br>代码<br>void GetNext(int *next,const char *sub)<br>{<br>    next[0] = -1;<br>    next[1] = 0;<br>    int lensub = strlen(sub);<br>    int i = 2;//当前的i<br>    int k = 0;//前一项的K值<br>    while(i &lt; lensub)<br>    {<br>        if(k == -1 || sub[i-1] == sub[k])<br>        {<br>            next[i] = k+1;<br>            i++;<br>            k = k+1;<br>        }<br>        else<br>        {<br>            k  = next[k];<br>        }<br>    }<br>}<br>算法实现<br>int Kmp(const char *str,const char *sub,int pos)<br>{<br>    int i = pos;<br>    int j = 0;<br>    int lens = strlen(str);<br>    int lensub = strlen(sub);<br>    int *next = (int *)malloc(sizeof(int) * lensub);<br>    assert(next != NULL);<br>    GetNext(next,sub);<br>    while(j &lt; lensub &amp;&amp; i &lt; lens)<br>    {<br>        if(j == -1 || str[i] == sub[j])<br>        {<br>            i++;<br>            j++;<br>        }<br>        else<br>        {<br>            j = next[j];<br>        }<br>    }<br>    if(j &gt;= lensub)<br>    {<br>        return i-j;<br>    }<br>    else<br>    {<br>        return -1;<br>    }<br>}</p>
 <hr>
-<h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><p>代码：<br>public class helloworld{<br>      public static void main(String args[]{<br>             System.out.println(“hello world”);<br>    }<br>}</p>
-<hr>
-<h2 id="PYTHON"><a href="#PYTHON" class="headerlink" title="PYTHON"></a>PYTHON</h2><p>代码：<br>print(“hello world”)</p>
+<h1 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h1><p>题目描述<br>首先输入一行字符串，然会在输入一行子串，输出对应的next数组与子串首位在原字符串的位置</p>
+<p>样例输入<br>sdryteygdgdyhusjk<br>eygdg</p>
+<p>样例输出<br>next:-1 0 0 0 0<br>5<br>代码<br>#include&lt;stdio.h&gt;<br>#include&lt;string.h&gt;<br>typedef struct seqstring {<br>    char string[100];<br>    int length;<br>}seqstring;<br>void getnext(seqstring p, int next[]) {<br>    int i, j;<br>    i = 0;//指向字符串每个字符的下标<br>    j = -1;<br>    next[i] = j;//next[0]放上-1<br>    while (i &lt; p.length) {//没有到达结尾的话<br>        if (j == -1 || p.string[i] == p.string[j]) {//如果是第一个字符或遇到相同的字符<br>            next[++i] = ++j;<br>        }<br>        else {<br>            j = next[j];<br>        }<br>    }<br>    for (i = 0;i &lt; p.length;i++) {//输出next[]值<br>        printf(“%d “, next[i]);<br>    }<br>}<br>int kmp(seqstring t, seqstring p, int next[]) {<br>    int i, j;<br>    i = j = 0;<br>    while (i &lt; t.length &amp;&amp; j &lt; p.length) {<br>        if (j == -1 || t.string[i] == p.string[j]) {<br>            i++;j++;<br>        }<br>        else {<br>            j = next[j];<br>        }<br>    }<br>    if (j == p.length) return i - p.length;<br>    else return -1;<br>}<br>int  main() {<br>    seqstring t, p;<br>    int next[50];<br>    scanf(“%s”, t.string);<br>    t.length = strlen(t.string);<br>    scanf(“%s”, p.string);<br>    p.length = strlen(p.string);<br>    printf(“next:”);<br>    getnext(p, next);<br>    printf(“\n%d\n”, kmp(t, p, next));<br>    return 0;<br>}</p>
 <hr>
 
       
@@ -308,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/16/KMP/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/14/%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/04/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2021/04/16/BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BF</div>
       <i class="icon-circle-right"></i>
     </a>
   

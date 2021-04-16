@@ -61,7 +61,7 @@
 		</nav>
 
                                 <nav>
-                                    总文章数 4
+                                    总文章数 6
                                 </nav>
 
 		<nav class="header-smart-menu">
@@ -164,6 +164,236 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-KMP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/16/KMP/">KMP</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/16/KMP/" class="archive-article-date">
+  	<time datetime="2021-04-16T07:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">607字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、KMP算法"><a href="#一、KMP算法" class="headerlink" title="一、KMP算法"></a>一、KMP算法</h1><p>在KMP算法中，对于每一个模式串都会事先计算出模式串的内部匹配信息，在匹配失败时最大的移动模式串，<br>以减少匹配次数，这样就很好的解决了BF算法的缺陷比如，当匹配失败后，最好是能够将模式字串尽量的右移<br>和主串进行匹配，右移的距离在KMP算法中是这样计算的：在已经匹配的字串中，找到最长的相同的前缀和后缀，<br>然后移动使他们重叠，这个位置就是j要回退的位置，这样j就不用每一次都回到0号位置了，每一次j回退的位置存<br>储在一个数组里，称之为next数组。</p>
+<hr>
+<h1 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h1><p>获取next数组<br>代码<br>void GetNext(int *next,const char *sub)<br>{<br>    next[0] = -1;<br>    next[1] = 0;<br>    int lensub = strlen(sub);<br>    int i = 2;//当前的i<br>    int k = 0;//前一项的K值<br>    while(i &lt; lensub)<br>    {<br>        if(k == -1 || sub[i-1] == sub[k])<br>        {<br>            next[i] = k+1;<br>            i++;<br>            k = k+1;<br>        }<br>        else<br>        {<br>            k  = next[k];<br>        }<br>    }<br>}<br>算法实现<br>int Kmp(const char *str,const char *sub,int pos)<br>{<br>    int i = pos;<br>    int j = 0;<br>    int lens = strlen(str);<br>    int lensub = strlen(sub);<br>    int *next = (int *)malloc(sizeof(int) * lensub);<br>    assert(next != NULL);<br>    GetNext(next,sub);<br>    while(j &lt; lensub &amp;&amp; i &lt; lens)<br>    {<br>        if(j == -1 || str[i] == sub[j])<br>        {<br>            i++;<br>            j++;<br>        }<br>        else<br>        {<br>            j = next[j];<br>        }<br>    }<br>    if(j &gt;= lensub)<br>    {<br>        return i-j;<br>    }<br>    else<br>    {<br>        return -1;<br>    }<br>}</p>
+<hr>
+<h1 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h1><p>题目描述<br>首先输入一行字符串，然会在输入一行子串，输出对应的next数组与子串首位在原字符串的位置</p>
+<p>样例输入<br>sdryteygdgdyhusjk<br>eygdg</p>
+<p>样例输出<br>next:-1 0 0 0 0<br>5<br>代码<br>#include&lt;stdio.h&gt;<br>#include&lt;string.h&gt;<br>typedef struct seqstring {<br>    char string[100];<br>    int length;<br>}seqstring;<br>void getnext(seqstring p, int next[]) {<br>    int i, j;<br>    i = 0;//指向字符串每个字符的下标<br>    j = -1;<br>    next[i] = j;//next[0]放上-1<br>    while (i &lt; p.length) {//没有到达结尾的话<br>        if (j == -1 || p.string[i] == p.string[j]) {//如果是第一个字符或遇到相同的字符<br>            next[++i] = ++j;<br>        }<br>        else {<br>            j = next[j];<br>        }<br>    }<br>    for (i = 0;i &lt; p.length;i++) {//输出next[]值<br>        printf(“%d “, next[i]);<br>    }<br>}<br>int kmp(seqstring t, seqstring p, int next[]) {<br>    int i, j;<br>    i = j = 0;<br>    while (i &lt; t.length &amp;&amp; j &lt; p.length) {<br>        if (j == -1 || t.string[i] == p.string[j]) {<br>            i++;j++;<br>        }<br>        else {<br>            j = next[j];<br>        }<br>    }<br>    if (j == p.length) return i - p.length;<br>    else return -1;<br>}<br>int  main() {<br>    seqstring t, p;<br>    int next[50];<br>    scanf(“%s”, t.string);<br>    t.length = strlen(t.string);<br>    scanf(“%s”, p.string);<br>    p.length = strlen(p.string);<br>    printf(“next:”);<br>    getnext(p, next);<br>    printf(“\n%d\n”, kmp(t, p, next));<br>    return 0;<br>}</p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/16/KMP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC81MzIzOC8yOTcxMg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
+  
+    <article id="post-BF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/16/BF/">BF</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/16/BF/" class="archive-article-date">
+  	<time datetime="2021-04-16T07:01:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">754字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、BF算法"><a href="#一、BF算法" class="headerlink" title="一、BF算法"></a>一、BF算法</h1><p>暴力匹配(BF)算法是普通的模式匹配算法，BF算法的思想就是将目标串S的第一个字符与模式串T的第一个字符<br>与模式串的T的第一个字符进行匹配，若相等，则继续比较S的第二个和T的第二个字符；若不等，则继续比较S<br>的第二个字符和T的第一个字符，依次比较，直到得到最后的匹配结果。</p>
+<hr>
+<h1 id="二、具体实现"><a href="#二、具体实现" class="headerlink" title="二、具体实现"></a>二、具体实现</h1><p>下标从0开始匹配<br>int BF(const char *str,const char *sub,int pos)<br>{<br>    assert(str!=NULL&amp;&amp;sub!=NULL);<br>    int i=pos;//用i来记录S中字符的位置<br>    int j=0;//用j来记录T中字符的位置<br>    int lens=strlen(str);<br>    int lensub=strlen(sub);<br>    //当S不为空并且T不为空时，逐个进行字符的比较<br>    while(j&lt;lensub&amp;&amp;i&lt;lens)<br>    {<br>        if(str[i]==sub[i])<br>        //当S中第i个字符与T中第j个字符相等时，i向后移一个，j向后移一个<br>        {<br>            i++;<br>            j++;<br>        }<br>        else<br>        //当S中第i个字符与T中第i个字符不相等时，i回到前一个位置的下一个位置，j回到0号位置<br>        {<br>            i=i-j+1;<br>            j=0;<br>        }<br>    }<br>    if(j&gt;=lensub)   //当j走完T的长度时，也就说明T在S中匹配成功<br>    {<br>        return i-j;     //此时返回字串在主串中的下标位置，此时i在该返回下标位置+j的长度位置，所以返回i-j。<br>    }<br>    else return -1;  //匹配失败，则返回-1，因为-1下标不存在，不能返回0下标<br>}<br>下标从任意位置开始匹配<br>int BF(SString S,SString T,int pos)<br>{<br>  int i,j;<br>  i=pos;<br>  j=1;<br>  while(i&lt;=S.lenth&amp;&amp;j&lt;=T.lenth) //当检索位置i,j同时小于主串与子串长度时，执行循环<br>   {<br>    if(S.ch[i-1]==T.ch[i-1])<br>     {<br>      i++;<br>      j++;<br>     }<br>    else<br>    {<br>    i=i-j+2;<br>    j=1;<br>    }<br>if(j&gt;T.lenth)<br>   return i-T.lenth; //j&gt;T.lenth匹配成功<br>else<br>    return 0;  //否则匹配失败<br>}</p>
+<hr>
+<h1 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h1><p>题目描述<br>首先输入一行字符串，然会在输入一行子串，输出子串首位在原串的位置</p>
+<p>样例输入<br>adsffgshgh<br>ffgsh<br>样例输出<br>4</p>
+<p>代码：<br>#include&lt;stdio.h&gt;<br>#include&lt;stdlib.h&gt;<br>#include&lt;string.h&gt;<br>#define MAXSIZE 100<br>#define OK 1<br>#define ERROR 0<br>typedef struct<br>{<br> char ch[MAXSIZE+1];<br> int length;<br>}SString;           //定义串结构<br>int Index_BF(SString S,SString T,int pos);<br>int main()<br>{<br> int pos = 1,pos_i;<br> SString S,T;<br> gets(S.ch);<br> S.length = strlen(S.ch);<br> gets(T.ch);<br> T.length = strlen(T.ch);<br> pos_i = Index_BF(S,T,pos);      //调用函数获得第一次匹配到的位置<br> printf(“%d”,pos_i);<br> return 0;<br>}<br>int Index_BF(SString S,SString T,int pos)<br>{<br> int i,j;<br> i = pos;<br> j = 1;<br> while(i&lt;=S.length &amp;&amp; j&lt;=T.length)    //当检索位置i,j同时小于主串与子串长度时，执行循环<br> {<br>  if(S.ch[i-1] == T.ch[j-1])<br>  {<br>   i++;<br>   j++;<br>  }<br>  else<br>  {<br>   i = i-j+2;       //匹配不成功，主串回溯到i-j+2,比较后继字符<br>   j = 1;         //匹配不成功，子串回溯到j = 1<br>  }<br> }<br> if(j&gt;T.length)<br>  return i-T.length;      //j&gt;T.length匹配成功<br> else<br>  return 0;        //否则，匹配失败<br>}</p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/16/BF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC81MzIzOC8yOTcxMg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
+  
     <article id="post-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -209,19 +439,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#一、DFS算法定义<br>深度优先搜素算法，又称DFS。DFS算法是一种搜索算法，此算法在运用时就是找一个头结点，然后沿着这个<br>头结点一直找下去，直到找到最后一个满足条件的分节点，然后再寻找另一条路径，当沿着一条路走不满足条<br>件时会自动跳入上一层节点进行判断。DFS算法是递归算法的一种。</p>
+        <h1 id="一、DFS算法定义"><a href="#一、DFS算法定义" class="headerlink" title="一、DFS算法定义"></a>一、DFS算法定义</h1><p>深度优先搜素算法，又称DFS。DFS算法是一种搜索算法，此算法在运用时就是找一个头结点，然后沿着这个<br>头结点一直找下去，直到找到最后一个满足条件的分节点，然后再寻找另一条路径，当沿着一条路走不满足条<br>件时会自动跳入上一层节点进行判断。DFS算法是递归算法的一种。</p>
 <hr>
-<p>#二、DFS算法具体实现<br>void DFS(type n){<br>         if(符合条件){cout&lt;&lt;答案;return;}<br>         if(可以剪枝) return;<br>         for(i:1~p){<br>               选择可行决策;<br>               标记已访问该点;<br>               DFS(n+1);<br>               (还原访问现场;)<br>       }<br>}</p>
+<h1 id="二、DFS算法具体实现"><a href="#二、DFS算法具体实现" class="headerlink" title="二、DFS算法具体实现"></a>二、DFS算法具体实现</h1><p>void DFS(type n){<br>         if(符合条件){cout&lt;&lt;答案;return;}<br>         if(可以剪枝) return;<br>         for(i:1~p){<br>               选择可行决策;<br>               标记已访问该点;<br>               DFS(n+1);<br>               (还原访问现场;)<br>       }<br>}</p>
 <p>int check(参数)<br>{<br>    if(满足条件)<br>        return 1;<br>    return 0;<br>}</p>
 <p>void dfs(int step)<br>{<br>        判断边界<br>        {<br>            相应操作<br>        }<br>        尝试每一种可能<br>        {<br>               满足check条件<br>               标记<br>               继续下一步dfs(step+1)<br>               恢复初始状态（回溯的时候要用到）<br>        }<br>}   </p>
 <hr>
-<p>#三、剪枝<br>1.顺序性剪枝<br>若一些题的搜索顺序对答案无影响，那么搜索顺序的不同会导致搜索树形态的改变，优先搜索分支较少的阶段，<br>此时能减少搜索的规模。<br>2.重复性剪枝<br>在搜索的时候如果有多种方式可以达到一个状态，那么我们只需要搜索一个分支足矣<br>3.可行性剪枝<br>可行性剪枝是对搜索正确性的一个保证，当分支在递归边界的时候回溯。<br>4.最优性剪枝<br>在搜索过程中，如果当前阶段的代价已经超过我们已知的最小代价，那么此时继续搜索下去没有意义。<br>5.记忆化剪枝<br>记忆搜索状态的结果，当重复遍历一个状态的时候就可以直接返回这个状态的答案，避免重复的搜索。</p>
+<h1 id="三、剪枝"><a href="#三、剪枝" class="headerlink" title="三、剪枝"></a>三、剪枝</h1><p>1.顺序性剪枝<br>若一些题的搜索顺序对答案无影响，那么搜索顺序的不同会导致搜索树形态的改变，优先搜索分支较少的阶段，<br>此时能减少搜索的规模。<br>2.重复性剪枝<br>在搜索的时候如果有多种方式可以达到一个状态，那么我们只需要搜索一个分支足矣<br>3.可行性剪枝<br>可行性剪枝是对搜索正确性的一个保证，当分支在递归边界的时候回溯。<br>4.最优性剪枝<br>在搜索过程中，如果当前阶段的代价已经超过我们已知的最小代价，那么此时继续搜索下去没有意义。<br>5.记忆化剪枝<br>记忆搜索状态的结果，当重复遍历一个状态的时候就可以直接返回这个状态的答案，避免重复的搜索。</p>
 <hr>
-<p>#四、实例<br>1.全排列问题<br>题目描述<br>对输入的多个数进行全排列</p>
+<h1 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h1><p>1.全排列问题<br>题目描述<br>对输入的多个数进行全排列</p>
 <p>样例输入<br>1 2 3</p>
 <p>样例输出<br>1<br>12<br>21<br>123<br>132<br>213<br>231<br>312<br>321</p>
-<p>代码</p>
-<h1 id="include-lt-bits-stdc-h-gt"><a href="#include-lt-bits-stdc-h-gt" class="headerlink" title="include&lt;bits/stdc++.h&gt;"></a>include&lt;bits/stdc++.h&gt;</h1><p>using namespace std;<br>int n;<br>int book[10] = {0};<br>int a[10];<br>void dfs(int index)<br>{<br>    if(index == n)  //递归终止条件<br>    {<br>        for(int i = 0;i &lt; n;++i)<br>            cout &lt;&lt; a[i];<br>        cout &lt;&lt; endl;<br>        return ;<br>    }<br>    else<br>    {<br>        for(int i = 1;i &lt;= n;++i)<br>        {<br>            if(!book[i])<br>            {<br>                book[i] = 1;//标记位<br>                a[index] = i;//把符合的数字保存到数组中<br>                dfs(index+1);<br>                a[index] = 0;<br>                book[i] = 0;//还原标记，以便回溯<br>            }<br>        }<br>    }<br>}<br>void init()<br>{<br>    for(int i = 0;i &lt; 9;++i)<br>        book[i] = 0;<br>}<br>int main()<br>{<br>    while(cin &gt;&gt; n)<br>    {<br>        dfs(0);<br>        init();<br>    }<br>    return 0;<br>} </p>
+<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int n;<br>int book[10] = {0};<br>int a[10];<br>void dfs(int index)<br>{<br>    if(index == n)  //递归终止条件<br>    {<br>        for(int i = 0;i &lt; n;++i)<br>            cout &lt;&lt; a[i];<br>        cout &lt;&lt; endl;<br>        return ;<br>    }<br>    else<br>    {<br>        for(int i = 1;i &lt;= n;++i)<br>        {<br>            if(!book[i])<br>            {<br>                book[i] = 1;//标记位<br>                a[index] = i;//把符合的数字保存到数组中<br>                dfs(index+1);<br>                a[index] = 0;<br>                book[i] = 0;//还原标记，以便回溯<br>            }<br>        }<br>    }<br>}<br>void init()<br>{<br>    for(int i = 0;i &lt; 9;++i)<br>        book[i] = 0;<br>}<br>int main()<br>{<br>    while(cin &gt;&gt; n)<br>    {<br>        dfs(0);<br>        init();<br>    }<br>    return 0;<br>} </p>
 <hr>
 <p>2.八皇后问题<br>题目描述<br>在国际象棋中，皇后是最厉害的棋子，可以横走、直走，还可以斜走。棋手马克斯·贝瑟尔 1848 年提出著名的八皇后问题：<br>即在 8 × 8 的棋盘上摆放八个皇后，使其不能互相攻击 —— 即任意两个皇后都不能处于同一行、同一列或同一条斜线上。<br>现在我们把棋盘扩展到 n×n 的棋盘上摆放 n 个皇后，请问该怎么摆？<br>请编写程序，输入正整数 n，输出全部摆法（棋盘格子空白处显示句点“.”，皇后处显示字母“Q”，每两个字符之间空一格）。</p>
 <p>输入格式<br>正整数 n(n&gt;0)</p>
@@ -232,6 +461,7 @@
 <p>. . . Q . .<br>Q . . . . .<br>. . . . Q .<br>. Q . . . .<br>. . . . . Q<br>. . Q . . .</p>
 <p>. . . . Q .<br>. . Q . . .<br>Q . . . . .<br>. . . . . Q<br>. . . Q . .<br>. Q . . . .</p>
 <p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>const int  N=20;<br>char    ch[N][N];//用一个二维数组来存储皇后放置的位置<br>bool   col[N],l[N&lt;&lt;1],r[N&lt;&lt;1];//为了数组不会越界，就把N乘2了,涉及位运算了<br>bool mark;//设置一个变量，判断是否有解（有解输出排法，无解输出None）<br>int  n;<br>//这个dfs是按行逐渐进行下去的，初始值为0行<br>void dfs(int x)<br>{<br>//如果x能够来到从初始值0来到n的位置就说明有一个解已经产生<br>   if(x==n){<br>/*<br>加这个判断实属必要，当第一个解产生的时候，此时mark还是初始值false(0),<br>所以把mark进入判断的第二个作用域，赋值为true(1),如果还有第二个解，<br>此时的mark已经为true，所以输出换行，看到这里是不是有些明白了，对，没错！<br>这个判断就是为了“解”与“解”之间能有个换行符而存在的！<br>*/<br>       if(mark)<br>       {<br>       cout&lt;&lt;endl;<br>       }<br>       else<br>       {<br>       mark=1;<br>       }<br>//下面就是遍历这个“解”了<br>for(int i=0;i&lt;n;i++)<br> {<br>   for(int j=0;j&lt;n;j++)<br>   {<br>    cout&lt;&lt;ch[i][j];<br>     if(j!=n-1)<br>     {<br>       cout&lt;&lt;’ ‘;//处理字符与字符之间的空格<br>     }<br>   }<br>  putchar(10);//输出一行后需要换行，换行的ASCII数为10<br> }<br>return;<br>       }//当这个“解”遍历完的时候，可以安排它消亡了<br>         //下面代码是这个题的核心，请务必！务必！务必！要不择一切手段也要弄懂<br>/*<br>要明白下面的for循环的意思，记住是x代表行数，下面的i代表的是x行i列,<br>如果不明白，请反复看，已经是保姆式教学了，<br>*/<br>  for(int i=0;i&lt;n;i++)<br> {<br>//下面的判断是核心中核心:<br>//第一个判断col[i]是判断i列能不能放，col[i]=1,说明不能放（因为下面的判断是！col[i]）<br>//第二个判断l[x+i]是判断主对角线能不能放，<br>//第三个判断r[n-x+i]是判断副对角线能不能放，<br>//第二第三个如果不能理解，建议直接强记模板！<br>     if(!col[i]&amp;&amp;!l[x+i]&amp;&amp;!r[n-x+i])<br>    {<br>    col[i]=l[x+i]=r[n-x+i]=1;//如果能放，对状态进行标记<br>    ch[x][i]=’Q’;<br>    dfs(x+1);//第一行结束，对下一行进行判断,都x+1了，你说是不是下一行<br>//对该坐标进行归“零”处理<br>     ch[x][i]=’.’;<br>    col[i]=l[x+i]=r[n-x+i]=0;<br>     }<br>  }<br>}<br>int main()<br>{<br>//这个就是对数组进行初始化处理，如果不知道的建议搜memset()详解<br>memset(ch,’.’,sizeof(ch));//初始化地图数组,这个函数在cstring这个头文件下面<br>cin&gt;&gt;n;<br>dfs(0);//这个就没得说了，从第一行开始遍历，0就是第一行。<br>//无解就输出None咯！<br>if(!mark)<br>{<br>    cout&lt;&lt;”None”;<br>}<br>return 0;<br>}</p>
+<hr>
 
       
 
@@ -342,13 +572,9 @@
         <p>题目描述<br>对输入的n个数进行从小到大排序</p>
 <p>样例输入<br>5<br>1 3 2 5 4<br>样例输出<br>1 2 3 4 5</p>
 <hr>
-<p>##冒泡法</p>
-<p>代码：</p>
-<h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main(){<br>int a[100];<br>int i,j,n,t;<br>scanf(“%d”,&amp;n);<br>for(i=0;i&lt;n;i++){<br>scanf(“%d”,&amp;a[i]);<br>}<br>for(j=0;j&lt;n-1;j++){<br>  for(i=0;i&lt;n-1-j;i++){<br>    if(a[i]&gt;a[i+1])<br>    {<br>     t=a[i];<br>     a[i]=a[i+1];<br>     a[i+1]=t;<br>    }<br>  }<br>}<br>for(i=0;i&lt;n;i++){<br>printf(“%d “,a[i]);<br>}<br>return 0;<br>}</p>
+<h2 id="冒泡法"><a href="#冒泡法" class="headerlink" title="冒泡法"></a>冒泡法</h2><p>代码：<br>#include&lt;stdio.h&gt;<br>int main(){<br>int a[100];<br>int i,j,n,t;<br>scanf(“%d”,&amp;n);<br>for(i=0;i&lt;n;i++){<br>scanf(“%d”,&amp;a[i]);<br>}<br>for(j=0;j&lt;n-1;j++){<br>  for(i=0;i&lt;n-1-j;i++){<br>    if(a[i]&gt;a[i+1])<br>    {<br>     t=a[i];<br>     a[i]=a[i+1];<br>     a[i+1]=t;<br>    }<br>  }<br>}<br>for(i=0;i&lt;n;i++){<br>printf(“%d “,a[i]);<br>}<br>return 0;<br>}</p>
 <hr>
-<p>##选择法</p>
-<p>代码：</p>
-<h1 id="include-lt-stdio-h-gt-1"><a href="#include-lt-stdio-h-gt-1" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main(){<br>int a[100];<br>int i,j,k,n,t;<br>scanf(“%d”,&amp;n);<br>for(i=0;i&lt;n;i++){<br>scanf(“%d”,&amp;a[i]);<br>}<br>for(i=0;i&lt;n;i++){<br>    k=i;<br>    for(j=i+1;j&lt;n;j++){<br>        if(a[k]&gt;a[j])<br>        k=j;<br>        if(k!=i)<br>        {<br>            t=a[i];<br>            a[i]=a[k];<br>            a[k]=t;<br>        }<br>    }<br>}<br>for(i=0;i&lt;n;i++){<br>printf(“%d “,a[i]);<br>}<br>return 0;<br>}</p>
+<h2 id="选择法"><a href="#选择法" class="headerlink" title="选择法"></a>选择法</h2><p>代码：<br>#include&lt;stdio.h&gt;<br>int main(){<br>int a[100];<br>int i,j,k,n,t;<br>scanf(“%d”,&amp;n);<br>for(i=0;i&lt;n;i++){<br>scanf(“%d”,&amp;a[i]);<br>}<br>for(i=0;i&lt;n;i++){<br>    k=i;<br>    for(j=i+1;j&lt;n;j++){<br>        if(a[k]&gt;a[j])<br>        k=j;<br>        if(k!=i)<br>        {<br>            t=a[i];<br>            a[i]=a[k];<br>            a[k]=t;<br>        }<br>    }<br>}<br>for(i=0;i&lt;n;i++){<br>printf(“%d “,a[i]);<br>}<br>return 0;<br>}</p>
 <hr>
 
       
@@ -457,19 +683,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##C</p>
-<p>代码：</p>
-<h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main()<br>{<br>printf(“hello world”)<br>return 0;<br>}</p>
+        <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>代码：<br>#include&lt;stdio.h&gt;<br>int main()<br>{<br>printf(“hello world”)<br>return 0;<br>}</p>
 <hr>
-<p>##C++</p>
-<p>代码：</p>
-<h1 id="include-lt-bits-stdc-h-gt"><a href="#include-lt-bits-stdc-h-gt" class="headerlink" title="include&lt;bits/stdc++.h&gt;"></a>include&lt;bits/stdc++.h&gt;</h1><p>using namespace std;<br>int main()<br>{<br>cout&lt;&lt;”hello world”;<br>return 0;<br>}</p>
+<h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><p>代码：<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int main()<br>{<br>cout&lt;&lt;”hello world”;<br>return 0;<br>}</p>
 <hr>
-<p>##JAVA</p>
-<p>代码：<br>public class helloworld{<br>      public static void main(String args[]{<br>             System.out.println(“hello world”);<br>    }<br>}</p>
+<h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><p>代码：<br>public class helloworld{<br>      public static void main(String args[]{<br>             System.out.println(“hello world”);<br>    }<br>}</p>
 <hr>
-<p>##PYTHON</p>
-<p>代码：<br>print(“hello world”)</p>
+<h2 id="PYTHON"><a href="#PYTHON" class="headerlink" title="PYTHON"></a>PYTHON</h2><p>代码：<br>print(“hello world”)</p>
 <hr>
 
       

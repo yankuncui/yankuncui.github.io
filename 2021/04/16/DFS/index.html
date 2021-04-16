@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>我的第一篇博客文章 | Hexo</title>
+  <title>DFS | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##C 代码： include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  ##C++ 代码： include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  ##JAVA 代码：public cl">
+  <meta name="description" content="#一、DFS算法定义深度优先搜素算法，又称DFS。DFS算法是一种搜索算法，此算法在运用时就是找一个头结点，然后沿着这个头结点一直找下去，直到找到最后一个满足条件的分节点，然后再寻找另一条路径，当沿着一条路走不满足条件时会自动跳入上一层节点进行判断。DFS算法是递归算法的一种。  #二、DFS算法具体实现void DFS(type n){         if(符合条件){cout&lt;&lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="DFS">
+<meta property="og:url" content="http://example.com/2021/04/16/DFS/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##C 代码： include&lt;stdio.h&gt;int main(){printf(“hello world”)return 0;}  ##C++ 代码： include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main(){cout&lt;&lt;”hello world”;return 0;}  ##JAVA 代码：public cl">
+<meta property="og:description" content="#一、DFS算法定义深度优先搜素算法，又称DFS。DFS算法是一种搜索算法，此算法在运用时就是找一个头结点，然后沿着这个头结点一直找下去，直到找到最后一个满足条件的分节点，然后再寻找另一条路径，当沿着一条路走不满足条件时会自动跳入上一层节点进行判断。DFS算法是递归算法的一种。  #二、DFS算法具体实现void DFS(type n){         if(符合条件){cout&lt;&lt;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-11T03:16:42.000Z">
-<meta property="article:modified_time" content="2021-04-14T05:25:40.566Z">
+<meta property="article:published_time" content="2021-04-16T00:36:31.000Z">
+<meta property="article:modified_time" content="2021-04-16T01:52:47.019Z">
 <meta property="article:author" content="cuiyankun">
 <meta name="twitter:card" content="summary">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-DFS" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      DFS
     </h1>
   
 
         
-        <a href="/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2021-04-11T03:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
+        <a href="/2021/04/16/DFS/" class="archive-article-date">
+  	<time datetime="2021-04-16T00:36:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -189,7 +189,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">59字</span>
+        <span class="post-count">1.7k字</span>
       </span>
     </span>
 
@@ -198,7 +198,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -211,20 +211,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##C</p>
-<p>代码：</p>
-<h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include&lt;stdio.h&gt;"></a>include&lt;stdio.h&gt;</h1><p>int main()<br>{<br>printf(“hello world”)<br>return 0;<br>}</p>
+        <p>#一、DFS算法定义<br>深度优先搜素算法，又称DFS。DFS算法是一种搜索算法，此算法在运用时就是找一个头结点，然后沿着这个<br>头结点一直找下去，直到找到最后一个满足条件的分节点，然后再寻找另一条路径，当沿着一条路走不满足条<br>件时会自动跳入上一层节点进行判断。DFS算法是递归算法的一种。</p>
 <hr>
-<p>##C++</p>
-<p>代码：</p>
-<h1 id="include-lt-bits-stdc-h-gt"><a href="#include-lt-bits-stdc-h-gt" class="headerlink" title="include&lt;bits/stdc++.h&gt;"></a>include&lt;bits/stdc++.h&gt;</h1><p>using namespace std;<br>int main()<br>{<br>cout&lt;&lt;”hello world”;<br>return 0;<br>}</p>
+<p>#二、DFS算法具体实现<br>void DFS(type n){<br>         if(符合条件){cout&lt;&lt;答案;return;}<br>         if(可以剪枝) return;<br>         for(i:1~p){<br>               选择可行决策;<br>               标记已访问该点;<br>               DFS(n+1);<br>               (还原访问现场;)<br>       }<br>}</p>
+<p>int check(参数)<br>{<br>    if(满足条件)<br>        return 1;<br>    return 0;<br>}</p>
+<p>void dfs(int step)<br>{<br>        判断边界<br>        {<br>            相应操作<br>        }<br>        尝试每一种可能<br>        {<br>               满足check条件<br>               标记<br>               继续下一步dfs(step+1)<br>               恢复初始状态（回溯的时候要用到）<br>        }<br>}   </p>
 <hr>
-<p>##JAVA</p>
-<p>代码：<br>public class helloworld{<br>      public static void main(String args[]{<br>             System.out.println(“hello world”);<br>    }<br>}</p>
+<p>#三、剪枝<br>1.顺序性剪枝<br>若一些题的搜索顺序对答案无影响，那么搜索顺序的不同会导致搜索树形态的改变，优先搜索分支较少的阶段，<br>此时能减少搜索的规模。<br>2.重复性剪枝<br>在搜索的时候如果有多种方式可以达到一个状态，那么我们只需要搜索一个分支足矣<br>3.可行性剪枝<br>可行性剪枝是对搜索正确性的一个保证，当分支在递归边界的时候回溯。<br>4.最优性剪枝<br>在搜索过程中，如果当前阶段的代价已经超过我们已知的最小代价，那么此时继续搜索下去没有意义。<br>5.记忆化剪枝<br>记忆搜索状态的结果，当重复遍历一个状态的时候就可以直接返回这个状态的答案，避免重复的搜索。</p>
 <hr>
-<p>##PYTHON</p>
-<p>代码：<br>print(“hello world”)</p>
+<p>#四、实例<br>1.全排列问题<br>题目描述<br>对输入的多个数进行全排列</p>
+<p>样例输入<br>1 2 3</p>
+<p>样例输出<br>1<br>12<br>21<br>123<br>132<br>213<br>231<br>312<br>321</p>
+<p>代码</p>
+<h1 id="include-lt-bits-stdc-h-gt"><a href="#include-lt-bits-stdc-h-gt" class="headerlink" title="include&lt;bits/stdc++.h&gt;"></a>include&lt;bits/stdc++.h&gt;</h1><p>using namespace std;<br>int n;<br>int book[10] = {0};<br>int a[10];<br>void dfs(int index)<br>{<br>    if(index == n)  //递归终止条件<br>    {<br>        for(int i = 0;i &lt; n;++i)<br>            cout &lt;&lt; a[i];<br>        cout &lt;&lt; endl;<br>        return ;<br>    }<br>    else<br>    {<br>        for(int i = 1;i &lt;= n;++i)<br>        {<br>            if(!book[i])<br>            {<br>                book[i] = 1;//标记位<br>                a[index] = i;//把符合的数字保存到数组中<br>                dfs(index+1);<br>                a[index] = 0;<br>                book[i] = 0;//还原标记，以便回溯<br>            }<br>        }<br>    }<br>}<br>void init()<br>{<br>    for(int i = 0;i &lt; 9;++i)<br>        book[i] = 0;<br>}<br>int main()<br>{<br>    while(cin &gt;&gt; n)<br>    {<br>        dfs(0);<br>        init();<br>    }<br>    return 0;<br>} </p>
 <hr>
+<p>2.八皇后问题<br>题目描述<br>在国际象棋中，皇后是最厉害的棋子，可以横走、直走，还可以斜走。棋手马克斯·贝瑟尔 1848 年提出著名的八皇后问题：<br>即在 8 × 8 的棋盘上摆放八个皇后，使其不能互相攻击 —— 即任意两个皇后都不能处于同一行、同一列或同一条斜线上。<br>现在我们把棋盘扩展到 n×n 的棋盘上摆放 n 个皇后，请问该怎么摆？<br>请编写程序，输入正整数 n，输出全部摆法（棋盘格子空白处显示句点“.”，皇后处显示字母“Q”，每两个字符之间空一格）。</p>
+<p>输入格式<br>正整数 n(n&gt;0)</p>
+<p>输出格式<br>若问题有解，则输出全部摆法（每两种摆法之间空一行）。<br>若问题无解，则输出 None。<br>要求：试探的顺序按从上到下逐行进行，其中每一行按从左到右的逐格进行</p>
+<p>样例输入1<br>3<br>样例输出1<br>none</p>
+<p>样例输入2<br>6<br>样例输出2<br>. Q . . . .<br>. . . Q . .<br>. . . . . Q<br>Q . . . . .<br>. . Q . . .<br>. . . . Q .</p>
+<p>. . Q . . .<br>. . . . . Q<br>. Q . . . .<br>. . . . Q .<br>Q . . . . .<br>. . . Q . .</p>
+<p>. . . Q . .<br>Q . . . . .<br>. . . . Q .<br>. Q . . . .<br>. . . . . Q<br>. . Q . . .</p>
+<p>. . . . Q .<br>. . Q . . .<br>Q . . . . .<br>. . . . . Q<br>. . . Q . .<br>. Q . . . .</p>
+<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>const int  N=20;<br>char    ch[N][N];//用一个二维数组来存储皇后放置的位置<br>bool   col[N],l[N&lt;&lt;1],r[N&lt;&lt;1];//为了数组不会越界，就把N乘2了,涉及位运算了<br>bool mark;//设置一个变量，判断是否有解（有解输出排法，无解输出None）<br>int  n;<br>//这个dfs是按行逐渐进行下去的，初始值为0行<br>void dfs(int x)<br>{<br>//如果x能够来到从初始值0来到n的位置就说明有一个解已经产生<br>   if(x==n){<br>/*<br>加这个判断实属必要，当第一个解产生的时候，此时mark还是初始值false(0),<br>所以把mark进入判断的第二个作用域，赋值为true(1),如果还有第二个解，<br>此时的mark已经为true，所以输出换行，看到这里是不是有些明白了，对，没错！<br>这个判断就是为了“解”与“解”之间能有个换行符而存在的！<br>*/<br>       if(mark)<br>       {<br>       cout&lt;&lt;endl;<br>       }<br>       else<br>       {<br>       mark=1;<br>       }<br>//下面就是遍历这个“解”了<br>for(int i=0;i&lt;n;i++)<br> {<br>   for(int j=0;j&lt;n;j++)<br>   {<br>    cout&lt;&lt;ch[i][j];<br>     if(j!=n-1)<br>     {<br>       cout&lt;&lt;’ ‘;//处理字符与字符之间的空格<br>     }<br>   }<br>  putchar(10);//输出一行后需要换行，换行的ASCII数为10<br> }<br>return;<br>       }//当这个“解”遍历完的时候，可以安排它消亡了<br>         //下面代码是这个题的核心，请务必！务必！务必！要不择一切手段也要弄懂<br>/*<br>要明白下面的for循环的意思，记住是x代表行数，下面的i代表的是x行i列,<br>如果不明白，请反复看，已经是保姆式教学了，<br>*/<br>  for(int i=0;i&lt;n;i++)<br> {<br>//下面的判断是核心中核心:<br>//第一个判断col[i]是判断i列能不能放，col[i]=1,说明不能放（因为下面的判断是！col[i]）<br>//第二个判断l[x+i]是判断主对角线能不能放，<br>//第三个判断r[n-x+i]是判断副对角线能不能放，<br>//第二第三个如果不能理解，建议直接强记模板！<br>     if(!col[i]&amp;&amp;!l[x+i]&amp;&amp;!r[n-x+i])<br>    {<br>    col[i]=l[x+i]=r[n-x+i]=1;//如果能放，对状态进行标记<br>    ch[x][i]=’Q’;<br>    dfs(x+1);//第一行结束，对下一行进行判断,都x+1了，你说是不是下一行<br>//对该坐标进行归“零”处理<br>     ch[x][i]=’.’;<br>    col[i]=l[x+i]=r[n-x+i]=0;<br>     }<br>  }<br>}<br>int main()<br>{<br>//这个就是对数组进行初始化处理，如果不知道的建议搜memset()详解<br>memset(ch,’.’,sizeof(ch));//初始化地图数组,这个函数在cstring这个头文件下面<br>cin&gt;&gt;n;<br>dfs(0);//这个就没得说了，从第一行开始遍历，0就是第一行。<br>//无解就输出None咯！<br>if(!mark)<br>{<br>    cout&lt;&lt;”None”;<br>}<br>return 0;<br>}</p>
 
       
 
@@ -314,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/16/DFS/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +337,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/14/%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/04/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2021/04/14/%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序</div>
       <i class="icon-circle-right"></i>
     </a>
   

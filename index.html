@@ -61,7 +61,7 @@
 		</nav>
 
                                 <nav>
-                                    总文章数 7
+                                    总文章数 8
                                 </nav>
 
 		<nav class="header-smart-menu">
@@ -163,6 +163,139 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-枚举算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/">枚举算法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-04-17T12:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">972字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、枚举算法的思想"><a href="#一、枚举算法的思想" class="headerlink" title="一、枚举算法的思想"></a>一、枚举算法的思想</h1><h2 id="枚举算法的定义"><a href="#枚举算法的定义" class="headerlink" title="枚举算法的定义"></a>枚举算法的定义</h2><p>在进行归纳推理时，如果逐个考察了某类事件的所有可能情况，因而得出一般结论，那么该结论是可靠 的，<br>这种归纳方法叫做枚举法。</p>
+<h2 id="枚举算法的思想"><a href="#枚举算法的思想" class="headerlink" title="枚举算法的思想"></a>枚举算法的思想</h2><p>将问题的所有可能的答案一一列举，然后根据条件判断此答案是否合适，保留合适的，舍弃不合适的。</p>
+<h2 id="使用枚举算法解题的基本思路"><a href="#使用枚举算法解题的基本思路" class="headerlink" title="使用枚举算法解题的基本思路"></a>使用枚举算法解题的基本思路</h2><p>（1）确定枚举对象、范围和判定条件。<br>（2）逐一枚举可能的解并验证每个解是否是问题的解。</p>
+<h2 id="枚举算法步骤"><a href="#枚举算法步骤" class="headerlink" title="枚举算法步骤"></a>枚举算法步骤</h2><p>（1）确定解题的可能范围，不能遗漏任何一个真正解，同时避免重复。<br>（2）判定是否是真正解的方法。<br>（3）为了提高解决问题的效率，使可能解的范围将至最小。</p>
+<hr>
+<h1 id="二、算法实例"><a href="#二、算法实例" class="headerlink" title="二、算法实例"></a>二、算法实例</h1><p>题目描述<br>观察数字：12321，123321都有一个共同的特征，无论从左往右读，还是从右往左读，都是相同的，<br>上述数字称为回文数字。</p>
+<p>现在要从5位或6位的十进制数字中找出各个位数之后等n的回文数字。</p>
+<p>输入格式<br>输入一个整数n(10&lt;n&lt;=100)</p>
+<p>输出格式<br>输出所有个位数之和等于n的5位和6位整数，每个数字占一行，数字从小到大的顺序排列。<br>如果没有满足的数字，则输出-1。<br>样例输入<br>48</p>
+<p>样例输出<br>699996<br>789987<br>798897<br>879978<br>888888<br>897798<br>969969<br>978879<br>987789<br>996699</p>
+<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int n;<br>int digit[6];<br>bool jug(int x){<br>    int m=0,sum=0;<br>    while(x){<br>        digit[m++]=x%10;<br>        sum+=x%10;<br>        x/=10;<br>    }<br>    if(sum!=n){<br>        return false;<br>    }<br>    for(int i=0;i&lt;m/2;i++){<br>        if(digit[i]!=digit[m-1-i])<br>        return false;<br>    }<br>    return true;<br>}<br>int main(){<br>    bool f=false;<br>    cin&gt;&gt;n;<br>    for(int i=10000;i&lt;1000000;i++){<br>        if(jug(i)){<br>            cout&lt;&lt;i&lt;&lt;endl;<br>            f=true;<br>        }<br>    }<br>    if(!f){<br>        cout&lt;&lt;-1&lt;&lt;endl;<br>    }<br>    return 0;<br>} </p>
+<hr>
+<p>题目描述<br>方程a^2+b^2+c^2=n，其中0&lt;a&lt;b&lt;c。请你求出它的所有解，结果按照<br>a的值从小到大输出。</p>
+<p>输入格式<br>输入一个整数n，为方程等号右边的整数。</p>
+<p>输出格式<br>输出若干行，每行包括三个空格隔开的整数，分别为a,b,c的值。</p>
+<p>样例输入<br>1000</p>
+<p>样例输出<br>6 8 30<br>10 18 24</p>
+<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int main(){<br>    int n;<br>    cin&gt;&gt;n;<br>    for(int a=1;a * a&lt;=n;a++){<br>        for(int b=a+1;a * a+b * b&lt;=n;b++){<br>            for(int c=b+1;a * a+b * b+c * c&lt;=n;c++){<br>                if(a * a+b * b+c * c==n)<br>                cout&lt;&lt;a&lt;&lt;” “&lt;&lt;b&lt;&lt;” “&lt;&lt;c&lt;&lt;endl;<br>            }<br>        }<br>    }<br>    return  0;<br>}</p>
+<hr>
+<p>题目描述<br>给定一个n x m的矩阵A。求A中的一个非空子矩阵，使这个子矩阵<br>中的元素和最大。其中，A的子矩阵是指A中行和列均连续的一部分。</p>
+<p>输入格式<br>输入的第一行包含两个整数<br>n,m(n&gt;=1,m&lt;=50),分别表示矩阵A的行数和列数，接下来n行，每行<br>m个整数，表示矩阵Aij(-1000&lt;=Aij&lt;=1000)。</p>
+<p>输出格式<br>输出一行，每包含一个整数，表示A中最大的子矩阵中的元素和</p>
+<p>样例输入<br>3 3<br>2 -4 1<br>-1 2 1<br>4 -2 2</p>
+<p>样例输出<br>6</p>
+<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int A[55][55];<br>int main(){<br>    int n,m,ans;<br>    cin&gt;&gt;n&gt;&gt;m;<br>    ans=-1005;<br>    for(int i=0;i&lt;n;i++){<br>        for(int j=0;j&lt;m;j++){<br>            cin&gt;&gt;A[i][j];<br>        }<br>    }<br>    for(int i=0;i&lt;n;i++){<br>        for(int j=i;j&lt;n;j++){<br>            for(int k=0;k&lt;m;k++){<br>                for(int l=k;l&lt;m;l++){<br>                    int tmp=0;<br>                    for(int p=i;p&lt;=j;p++){<br>                        for(int q=k;q&lt;=l;q++){<br>                            tmp+=A[p][q];<br>                        }<br>                    }<br>                    if(tmp&gt;ans){<br>                        ans=tmp;<br>                    }<br>                }<br>            }<br>        }<br>    }<br>    cout&lt;&lt;ans&lt;&lt;endl;<br>    return  0;<br>}</p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC81MzIzOC8yOTcxMg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
   
     <article id="post-C-算法常用函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">

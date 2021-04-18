@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>枚举算法 | Hexo</title>
+  <title>贪心算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、枚举算法的思想枚举算法的定义在进行归纳推理时，如果逐个考察了某类事件的所有可能情况，因而得出一般结论，那么该结论是可靠 的，这种归纳方法叫做枚举法。 枚举算法的思想将问题的所有可能的答案一一列举，然后根据条件判断此答案是否合适，保留合适的，舍弃不合适的。 使用枚举算法解题的基本思路（1）确定枚举对象、范围和判定条件。（2）逐一枚举可能的解并验证每个解是否是问题的解。 枚举算法步骤（1）确定解题">
+  <meta name="description" content="一、贪心算法的基本思想贪心算法是指在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，它所做出的仅是在某种意义上的局部最优解。用局部解构造全局解，即从问题的某一个初始解逐步逼近给定的目标，以尽可能快的求得更好的解。当某个算法中的某一步不能再继续前进时，算法停止。  二、贪心算法存在问题(1)不能保证解释最佳的。因为贪心算法总是从局部出发，并没有从整体考虑。(2)贪心算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="枚举算法">
-<meta property="og:url" content="http://example.com/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="贪心算法">
+<meta property="og:url" content="http://example.com/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、枚举算法的思想枚举算法的定义在进行归纳推理时，如果逐个考察了某类事件的所有可能情况，因而得出一般结论，那么该结论是可靠 的，这种归纳方法叫做枚举法。 枚举算法的思想将问题的所有可能的答案一一列举，然后根据条件判断此答案是否合适，保留合适的，舍弃不合适的。 使用枚举算法解题的基本思路（1）确定枚举对象、范围和判定条件。（2）逐一枚举可能的解并验证每个解是否是问题的解。 枚举算法步骤（1）确定解题">
+<meta property="og:description" content="一、贪心算法的基本思想贪心算法是指在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，它所做出的仅是在某种意义上的局部最优解。用局部解构造全局解，即从问题的某一个初始解逐步逼近给定的目标，以尽可能快的求得更好的解。当某个算法中的某一步不能再继续前进时，算法停止。  二、贪心算法存在问题(1)不能保证解释最佳的。因为贪心算法总是从局部出发，并没有从整体考虑。(2)贪心算">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-17T12:44:10.000Z">
-<meta property="article:modified_time" content="2021-04-18T00:13:58.236Z">
+<meta property="article:published_time" content="2021-04-18T05:14:50.000Z">
+<meta property="article:modified_time" content="2021-04-18T05:47:28.098Z">
 <meta property="article:author" content="cuiyankun">
 <meta name="twitter:card" content="summary">
   
@@ -166,20 +166,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-枚举算法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-贪心算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      枚举算法
+      贪心算法
     </h1>
   
 
         
-        <a href="/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-04-17T12:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-17</time>
+        <a href="/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-04-18T05:14:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -189,7 +189,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">972字</span>
+        <span class="post-count">713字</span>
       </span>
     </span>
 
@@ -198,7 +198,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -211,31 +211,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、枚举算法的思想"><a href="#一、枚举算法的思想" class="headerlink" title="一、枚举算法的思想"></a>一、枚举算法的思想</h1><h2 id="枚举算法的定义"><a href="#枚举算法的定义" class="headerlink" title="枚举算法的定义"></a>枚举算法的定义</h2><p>在进行归纳推理时，如果逐个考察了某类事件的所有可能情况，因而得出一般结论，那么该结论是可靠 的，<br>这种归纳方法叫做枚举法。</p>
-<h2 id="枚举算法的思想"><a href="#枚举算法的思想" class="headerlink" title="枚举算法的思想"></a>枚举算法的思想</h2><p>将问题的所有可能的答案一一列举，然后根据条件判断此答案是否合适，保留合适的，舍弃不合适的。</p>
-<h2 id="使用枚举算法解题的基本思路"><a href="#使用枚举算法解题的基本思路" class="headerlink" title="使用枚举算法解题的基本思路"></a>使用枚举算法解题的基本思路</h2><p>（1）确定枚举对象、范围和判定条件。<br>（2）逐一枚举可能的解并验证每个解是否是问题的解。</p>
-<h2 id="枚举算法步骤"><a href="#枚举算法步骤" class="headerlink" title="枚举算法步骤"></a>枚举算法步骤</h2><p>（1）确定解题的可能范围，不能遗漏任何一个真正解，同时避免重复。<br>（2）判定是否是真正解的方法。<br>（3）为了提高解决问题的效率，使可能解的范围将至最小。</p>
+        <h1 id="一、贪心算法的基本思想"><a href="#一、贪心算法的基本思想" class="headerlink" title="一、贪心算法的基本思想"></a>一、贪心算法的基本思想</h1><p>贪心算法是指在对问题求解时，总是做出在当前看来是最好的选择。也就是说，<br>不从整体最优上加以考虑，它所做出的仅是在某种意义上的局部最优解。用局<br>部解构造全局解，即从问题的某一个初始解逐步逼近给定的目标，以尽可能快<br>的求得更好的解。当某个算法中的某一步不能再继续前进时，算法停止。</p>
 <hr>
-<h1 id="二、算法实例"><a href="#二、算法实例" class="headerlink" title="二、算法实例"></a>二、算法实例</h1><p>题目描述<br>观察数字：12321，123321都有一个共同的特征，无论从左往右读，还是从右往左读，都是相同的，<br>上述数字称为回文数字。</p>
-<p>现在要从5位或6位的十进制数字中找出各个位数之后等n的回文数字。</p>
-<p>输入格式<br>输入一个整数n(10&lt;n&lt;=100)</p>
-<p>输出格式<br>输出所有个位数之和等于n的5位和6位整数，每个数字占一行，数字从小到大的顺序排列。<br>如果没有满足的数字，则输出-1。<br>样例输入<br>48</p>
-<p>样例输出<br>699996<br>789987<br>798897<br>879978<br>888888<br>897798<br>969969<br>978879<br>987789<br>996699</p>
-<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int n;<br>int digit[6];<br>bool jug(int x){<br>    int m=0,sum=0;<br>    while(x){<br>        digit[m++]=x%10;<br>        sum+=x%10;<br>        x/=10;<br>    }<br>    if(sum!=n){<br>        return false;<br>    }<br>    for(int i=0;i&lt;m/2;i++){<br>        if(digit[i]!=digit[m-1-i])<br>        return false;<br>    }<br>    return true;<br>}<br>int main(){<br>    bool f=false;<br>    cin&gt;&gt;n;<br>    for(int i=10000;i&lt;1000000;i++){<br>        if(jug(i)){<br>            cout&lt;&lt;i&lt;&lt;endl;<br>            f=true;<br>        }<br>    }<br>    if(!f){<br>        cout&lt;&lt;-1&lt;&lt;endl;<br>    }<br>    return 0;<br>} </p>
+<h1 id="二、贪心算法存在问题"><a href="#二、贪心算法存在问题" class="headerlink" title="二、贪心算法存在问题"></a>二、贪心算法存在问题</h1><p>(1)不能保证解释最佳的。因为贪心算法总是从局部出发，并没有从整体考虑。<br>(2)贪心算法一般用来解决求最大或最小解。<br>(3)贪心算法只能确定某些问题的可行性范围。</p>
 <hr>
-<p>题目描述<br>方程a^2+b^2+c^2=n，其中0&lt;a&lt;b&lt;c。请你求出它的所有解，结果按照<br>a的值从小到大输出。</p>
-<p>输入格式<br>输入一个整数n，为方程等号右边的整数。</p>
-<p>输出格式<br>输出若干行，每行包括三个空格隔开的整数，分别为a,b,c的值。</p>
-<p>样例输入<br>1000</p>
-<p>样例输出<br>6 8 30<br>10 18 24</p>
-<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int main(){<br>    int n;<br>    cin&gt;&gt;n;<br>    for(int a=1;a * a&lt;=n;a++){<br>        for(int b=a+1;a * a+b * b&lt;=n;b++){<br>            for(int c=b+1;a * a+b * b+c * c&lt;=n;c++){<br>                if(a * a+b * b+c * c==n)<br>                cout&lt;&lt;a&lt;&lt;” “&lt;&lt;b&lt;&lt;” “&lt;&lt;c&lt;&lt;endl;<br>            }<br>        }<br>    }<br>    return  0;<br>}</p>
-<hr>
-<p>题目描述<br>给定一个n x m的矩阵A。求A中的一个非空子矩阵，使这个子矩阵<br>中的元素和最大。其中，A的子矩阵是指A中行和列均连续的一部分。</p>
-<p>输入格式<br>输入的第一行包含两个整数<br>n,m(n&gt;=1,m&lt;=50),分别表示矩阵A的行数和列数，接下来n行，每行<br>m个整数，表示矩阵Aij(-1000&lt;=Aij&lt;=1000)。</p>
-<p>输出格式<br>输出一行，每包含一个整数，表示A中最大的子矩阵中的元素和</p>
-<p>样例输入<br>3 3<br>2 -4 1<br>-1 2 1<br>4 -2 2</p>
-<p>样例输出<br>6</p>
-<p>代码<br>#include&lt;bits/stdc++.h&gt;<br>using namespace std;<br>int A[55][55];<br>int main(){<br>    int n,m,ans;<br>    cin&gt;&gt;n&gt;&gt;m;<br>    ans=-1005;<br>    for(int i=0;i&lt;n;i++){<br>        for(int j=0;j&lt;m;j++){<br>            cin&gt;&gt;A[i][j];<br>        }<br>    }<br>    for(int i=0;i&lt;n;i++){<br>        for(int j=i;j&lt;n;j++){<br>            for(int k=0;k&lt;m;k++){<br>                for(int l=k;l&lt;m;l++){<br>                    int tmp=0;<br>                    for(int p=i;p&lt;=j;p++){<br>                        for(int q=k;q&lt;=l;q++){<br>                            tmp+=A[p][q];<br>                        }<br>                    }<br>                    if(tmp&gt;ans){<br>                        ans=tmp;<br>                    }<br>                }<br>            }<br>        }<br>    }<br>    cout&lt;&lt;ans&lt;&lt;endl;<br>    return  0;<br>}</p>
+<h1 id="三、贪心算法的实现过程"><a href="#三、贪心算法的实现过程" class="headerlink" title="三、贪心算法的实现过程"></a>三、贪心算法的实现过程</h1><p>贪心算法的核心问题是选择能产生问题最优解的最优度量标准，即贪心策略。<br>所谓贪心策略是指从问题的.初始状态出发，通过若干次的贪心选择而得出最<br>优值的一种解题方法，其具体的实现<br>过程如下：<br>(1)应用同一规则，将原问题变为一个相似的但规模更小的子问题。<br>(2)从问题的某一初始解出发：<br>      while （能朝给定目标前进一步）<br>              求出可行解的一个解元素<br>(3)由所有解元素组合成问题的一个可行解</p>
+<h2 id="四、具体实例"><a href="#四、具体实例" class="headerlink" title="四、具体实例"></a>四、具体实例</h2><p>有N堆纸牌，编号分别为1，2，…，n。每堆上有若干张,但纸牌总数必为n的倍数.<br>可以在任一堆上取若干张纸牌,然后移动。移牌的规则为：在编号为1上取的纸牌，<br>只能移到编号为2的堆上；在编号为n的堆上取的纸牌，只能移到编号为n-1的堆上；<br>其他堆上取的纸牌，可以移到相邻左边或右边的堆上。现在要求找出一种移动方法，<br>用最少的移动次数使每堆上纸牌数都一样多。例如：n=4，4堆纸牌分别为：<br>① 9 ② 8 ③ 17 ④ 6 移动三次可以达到目的：从③取4张牌放到④<br> 再从③区3张放到②然后从②去1张放到①。</p>
+<p>样例输入<br>4<br>9 8 17 6<br>样例输出<br>3</p>
+<p>代码<br>public class Greedy {<br>    public static void main(String[] args) {<br>  int n = 0, avg =0, s = 0;<br>  Scanner scanner = new Scanner(System.in);<br>  ArrayList<Integer> array = new ArrayList<Integer>();<br>  System.out.println(“Please input the number of heaps:”);<br>  n = scanner.nextInt();<br>  System.out.println(“Please input heap number:”);<br>  for (int i = 0; i &lt; n; i++) {<br>   array.add(scanner.nextInt());<br>  }<br>  for(int i = 0; i &lt; array.size(); i ++){<br>   avg += array.get(i);<br>  }<br>  avg = avg/array.size();<br>  System.out.println(array.size());<br>  System.out.println(avg);<br>  for(int i = 0; i &lt; array.size()-1; i ++){<br>   s++;<br>   array.set(i+1, array.get(i+1)+array.get(i)-avg);   <br>  }<br>  System.out.println(“s:” + s);<br> }<br>}</p>
 <hr>
 
       
@@ -326,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          贪心算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/04/16/C-%E7%AE%97%E6%B3%95%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++算法常用函数</div>
+    <a href="/2021/04/17/%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">枚举算法</div>
       <i class="icon-circle-right"></i>
     </a>
   

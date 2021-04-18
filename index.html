@@ -61,7 +61,7 @@
 		</nav>
 
                                 <nav>
-                                    总文章数 8
+                                    总文章数 9
                                 </nav>
 
 		<nav class="header-smart-menu">
@@ -163,6 +163,122 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-贪心算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">贪心算法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-04-18T05:14:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">713字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、贪心算法的基本思想"><a href="#一、贪心算法的基本思想" class="headerlink" title="一、贪心算法的基本思想"></a>一、贪心算法的基本思想</h1><p>贪心算法是指在对问题求解时，总是做出在当前看来是最好的选择。也就是说，<br>不从整体最优上加以考虑，它所做出的仅是在某种意义上的局部最优解。用局<br>部解构造全局解，即从问题的某一个初始解逐步逼近给定的目标，以尽可能快<br>的求得更好的解。当某个算法中的某一步不能再继续前进时，算法停止。</p>
+<hr>
+<h1 id="二、贪心算法存在问题"><a href="#二、贪心算法存在问题" class="headerlink" title="二、贪心算法存在问题"></a>二、贪心算法存在问题</h1><p>(1)不能保证解释最佳的。因为贪心算法总是从局部出发，并没有从整体考虑。<br>(2)贪心算法一般用来解决求最大或最小解。<br>(3)贪心算法只能确定某些问题的可行性范围。</p>
+<hr>
+<h1 id="三、贪心算法的实现过程"><a href="#三、贪心算法的实现过程" class="headerlink" title="三、贪心算法的实现过程"></a>三、贪心算法的实现过程</h1><p>贪心算法的核心问题是选择能产生问题最优解的最优度量标准，即贪心策略。<br>所谓贪心策略是指从问题的.初始状态出发，通过若干次的贪心选择而得出最<br>优值的一种解题方法，其具体的实现<br>过程如下：<br>(1)应用同一规则，将原问题变为一个相似的但规模更小的子问题。<br>(2)从问题的某一初始解出发：<br>      while （能朝给定目标前进一步）<br>              求出可行解的一个解元素<br>(3)由所有解元素组合成问题的一个可行解</p>
+<h2 id="四、具体实例"><a href="#四、具体实例" class="headerlink" title="四、具体实例"></a>四、具体实例</h2><p>有N堆纸牌，编号分别为1，2，…，n。每堆上有若干张,但纸牌总数必为n的倍数.<br>可以在任一堆上取若干张纸牌,然后移动。移牌的规则为：在编号为1上取的纸牌，<br>只能移到编号为2的堆上；在编号为n的堆上取的纸牌，只能移到编号为n-1的堆上；<br>其他堆上取的纸牌，可以移到相邻左边或右边的堆上。现在要求找出一种移动方法，<br>用最少的移动次数使每堆上纸牌数都一样多。例如：n=4，4堆纸牌分别为：<br>① 9 ② 8 ③ 17 ④ 6 移动三次可以达到目的：从③取4张牌放到④<br> 再从③区3张放到②然后从②去1张放到①。</p>
+<p>样例输入<br>4<br>9 8 17 6<br>样例输出<br>3</p>
+<p>代码<br>public class Greedy {<br>    public static void main(String[] args) {<br>  int n = 0, avg =0, s = 0;<br>  Scanner scanner = new Scanner(System.in);<br>  ArrayList<Integer> array = new ArrayList<Integer>();<br>  System.out.println(“Please input the number of heaps:”);<br>  n = scanner.nextInt();<br>  System.out.println(“Please input heap number:”);<br>  for (int i = 0; i &lt; n; i++) {<br>   array.add(scanner.nextInt());<br>  }<br>  for(int i = 0; i &lt; array.size(); i ++){<br>   avg += array.get(i);<br>  }<br>  avg = avg/array.size();<br>  System.out.println(array.size());<br>  System.out.println(avg);<br>  for(int i = 0; i &lt; array.size()-1; i ++){<br>   s++;<br>   array.set(i+1, array.get(i+1)+array.get(i)-avg);   <br>  }<br>  System.out.println(“s:” + s);<br> }<br>}</p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/18/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC81MzIzOC8yOTcxMg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
   
     <article id="post-枚举算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">

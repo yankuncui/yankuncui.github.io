@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>广度遍历与深度遍历</title>
+      <link href="2021/05/28/%E5%B9%BF%E5%BA%A6%E9%81%8D%E5%8E%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E9%81%8D%E5%8E%86/"/>
+      <url>2021/05/28/%E5%B9%BF%E5%BA%A6%E9%81%8D%E5%8E%86%E4%B8%8E%E6%B7%B1%E5%BA%A6%E9%81%8D%E5%8E%86/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>哈夫曼树构造步骤及写出相应编码</title>
       <link href="2021/05/24/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E6%9E%84%E9%80%A0%E6%AD%A5%E9%AA%A4%E5%8F%8A%E5%86%99%E5%87%BA%E7%9B%B8%E5%BA%94%E7%BC%96%E7%A0%81/"/>
       <url>2021/05/24/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E6%9E%84%E9%80%A0%E6%AD%A5%E9%AA%A4%E5%8F%8A%E5%86%99%E5%87%BA%E7%9B%B8%E5%BA%94%E7%BC%96%E7%A0%81/</url>
@@ -60,7 +73,7 @@
       <link href="2021/05/05/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/"/>
       <url>2021/05/05/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</url>
       
-        <content type="html"><![CDATA[<h1 id="一、软件准备"><a href="#一、软件准备" class="headerlink" title="一、软件准备"></a>一、软件准备</h1><p>Typora(用于博客文本编写)</p><p>PicGo(用于同步git图片仓库)</p><h1 id="二、搭建个人图床"><a href="#二、搭建个人图床" class="headerlink" title="二、搭建个人图床"></a>二、搭建个人图床</h1><h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先进入github新建个人仓库，如blogpicture。</p><h2 id="2-获取token"><a href="#2-获取token" class="headerlink" title="2.获取token"></a>2.获取token</h2><p>在个人头像那里，点击setting，选择Deployer settings，在私人令牌中，选择repo权限，然后提交</p><p>保存token即可</p><h2 id="3-PicGo设置"><a href="#3-PicGo设置" class="headerlink" title="3.PicGo设置"></a>3.PicGo设置</h2><p>参数说明：</p><p>仓库名：表示远程仓库地址，固定格式 Github用户名/仓库名，前期准备用到的仓库<br>分支名：表示分支，默认填入master，需要根据自己Github上的分支进行填写<br>Token：填入Github中生成的Token，上面已经讲解过Token获取<br>存储路径：可以自定义一个文件路径<br>自定义域名：建议使用https:cdn.jsdelivr.net/gh/Github用户名/仓库名</p><h2 id="4-Typora设置"><a href="#4-Typora设置" class="headerlink" title="4.Typora设置"></a>4.Typora设置</h2><p>点击image，在when Insert下选择 Upload image,勾选4个A开头的，在image  Upload </p><p>Setting选择PicGo.app</p><h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><p>选择任意一张图片复制，然后粘贴在typora文本编辑中会生成一个网址，并且PicGo会提示上传成功，<br>根据网址可以通过浏览器访问图片，如<a href="https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg%E3%80%82">https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg。</a><br><img src="https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg" alt="ch"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、软件准备"><a href="#一、软件准备" class="headerlink" title="一、软件准备"></a>一、软件准备</h1><p>Typora(用于博客文本编写)</p><p>PicGo(用于同步git图片仓库)</p><h1 id="二、搭建个人图床"><a href="#二、搭建个人图床" class="headerlink" title="二、搭建个人图床"></a>二、搭建个人图床</h1><h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先进入github新建个人仓库，如blogpicture。</p><h2 id="2-获取token"><a href="#2-获取token" class="headerlink" title="2.获取token"></a>2.获取token</h2><p>在个人头像那里，点击setting，选择Deployer settings，在私人令牌中，选择repo权限，然后提交</p><p>保存token即可</p><h2 id="3-PicGo设置"><a href="#3-PicGo设置" class="headerlink" title="3.PicGo设置"></a>3.PicGo设置</h2><p>参数说明：</p><p>仓库名：表示远程仓库地址，固定格式 Github用户名/仓库名，前期准备用到的仓库<br>分支名：表示分支，默认填入master，需要根据自己Github上的分支进行填写<br>Token：填入Github中生成的Token，上面已经讲解过Token获取<br>存储路径：可以自定义一个文件路径<br>自定义域名：建议使用<a href="https://cdn.jsdelivr.net/gh/Github%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%90%8D">https://cdn.jsdelivr.net/gh/Github用户名/仓库名</a></p><h2 id="4-Typora设置"><a href="#4-Typora设置" class="headerlink" title="4.Typora设置"></a>4.Typora设置</h2><p>点击image，在when Insert下选择 Upload image,勾选4个A开头的，在image  Upload </p><p>Setting选择PicGo.app</p><h1 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h1><p>选择任意一张图片复制，然后粘贴在typora文本编辑中会生成一个网址，并且PicGo会提示上传成功，<br>根据网址可以通过浏览器访问图片，如<a href="https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg%E3%80%82">https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg。</a><br><img src="https://cdn.jsdelivr.net/gh/yankuncui/blogpicture/img/ch.jpg" alt="ch"></p>]]></content>
       
       
       

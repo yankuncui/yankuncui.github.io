@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>前端页面英文释义</title>
+      <link href="2021/05/31/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%8B%B1%E6%96%87%E9%87%8A%E4%B9%89/"/>
+      <url>2021/05/31/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%8B%B1%E6%96%87%E9%87%8A%E4%B9%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Div英文释义"><a href="#Div英文释义" class="headerlink" title="Div英文释义"></a>Div英文释义</h2><p>标题：title        字体：font      身体：body      大小：size           列表：list</p><p>文本：text        样式：style     对齐：align      图像：image       修饰：decoration</p><p>资源：source   线/行：line          宽度：width     穿过：through    高度：height</p><p>缩进：indent    主题：main          斜体：italic      链接：link             加粗：bold</p><p>加重：weight    顶部：top      输入：input     下面的：under     背景：background</p><h1 id="CSS英文释义"><a href="#CSS英文释义" class="headerlink" title="CSS英文释义"></a>CSS英文释义</h1><p>重复：repeat         填充：padding             位置：position   正常：normal    显示类型：display</p><p>父级：parent         显示可见：visibility     子级：children   隐藏：hidden    顶部导航：topnav</p><p>显示：visible          导航：nav                     溢出：overflow  图片：banner   列表：list</p><p>行高：line-height  样式：style                   边界：margin     边框：border   页眉：header</p><h1 id="功能英文释义"><a href="#功能英文释义" class="headerlink" title="功能英文释义"></a>功能英文释义</h1><p>标志：logo       服务：service  滚动：scroll      加入：joinus  广告：banner   指南：guild  标签页：tab 状态：status  登录：login</p><p>登录条：loginbar 按钮：btn    注册：register  热点：bot   当前的：current 新闻：news  搜索：search  下载：download 小技巧：tips</p><p>版权：copyright   功能区：shop投票：vote      图标：icon  标题：title 文章列表：list 合作伙伴：partner 提示信息：msg   注释：note</p><h1 id="导航英文释义"><a href="#导航英文释义" class="headerlink" title="导航英文释义"></a>导航英文释义</h1><p>导航：nav   主导航：mainbav  子导航：subnav   项导航：topnav   边导航：sidebar  标题：title</p><p>左导航：leftsidebar   右导航：rightsidebar  菜单：menu  子菜单：submenu  摘要：summary</p><h1 id="页面结构英文释义"><a href="#页面结构英文释义" class="headerlink" title="页面结构英文释义"></a>页面结构英文释义</h1><p>容器：container    页头：header   内容：content  页面主题：main   页尾：footer</p><p>导航：nav   侧栏：sidebar  栏目：column  页面外围控制布局宽度：wrapper</p><p>​                 left</p><p>左中右：center</p><p>​                right</p><h2 id="样式文件的命名"><a href="#样式文件的命名" class="headerlink" title="样式文件的命名"></a>样式文件的命名</h2><p>主要的：master.css     模块：module.css   基本共用：base.css   布局：layout.css   主题：themes.css</p><p>专栏：columns.css      文字：font.css      表单：forms.css            补丁：mend.css    打印：print.css</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>遍历二叉树</title>
       <link href="2021/05/30/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
       <url>2021/05/30/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/</url>

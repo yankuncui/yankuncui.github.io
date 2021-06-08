@@ -5,12 +5,12 @@
 <meta property="og:site_name" content="Champion">
 <meta property="og:description" content="2021年6月4日  星期五  晴 ​                                                                                              克鲁斯卡尔算法求最小生成树 基本思想是：假设连通网G&#x3D;（V，E），令最小生成树的初始状态为只有n个顶点而无边的非连通图T&#x3D;（V，{}），图中每个顶点自成一个连通分量。在E中选">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2021-04-27T02:57:55.000Z">
-<meta property="article:modified_time" content="2021-06-07T12:58:28.372Z">
+<meta property="article:modified_time" content="2021-06-08T02:51:12.528Z">
 <meta property="article:author" content="cuiyankun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/timeline/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/timeline/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -57,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-06-07 20:58:28'
+  postUpdate: '2021-06-08 10:51:12'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -164,9 +164,37 @@
 <p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/76AADD936B6B2A903FF3B2A0ED40A52B.jpg" alt="img"></p>
 <hr>
 <p>2021年6月5日   星期六      晴                                                                            </p>
-<p>​                                                                       <strong>迪杰斯特拉算法求最短路径</strong></p>
+<p>​                                                                                 <strong>迪杰斯特拉算法求最短路径</strong></p>
+<p><strong>迪杰斯特拉算法的求解过程</strong></p>
+<p>对于网N=(V,E),将N中的顶点分成两组</p>
+<p>第一组S：已求出的最短路径的终点集合(初始时只包含源点v0)</p>
+<p>第二组V-S：尚未求出的最短路径的终点集合(初始时为V-{v0})</p>
+<p>算法将按各顶点与v0间最短路径递增的次序，逐个将集合V-S中的顶点加入到集合S中去。在这个过程中，总保持从v0到集合S中各顶点的路径长度始终不大于到集合V-S中各顶点的路径长度。</p>
+<p><strong>迪杰斯特拉算法步骤</strong></p>
+<p>初始化</p>
+<ul>
+<li>将源点v0加入到S中，即S[v0]=true;</li>
+<li>将v0到各个终点的最短路径长度初始化为权值，即D[i]=G.arcs [v0] [vi],(vi属于V-S);</li>
+<li>如果v0到顶点vi之间有弧，则将vi的前驱置为v0，即Path[i]=v0,否则Path[i]=-1。</li>
+</ul>
+<p>循环n-1次，执行以下操作</p>
+<ul>
+<li><p>选择一条最短路径的终点vk，使得：</p>
+<p>​             D[k]=Min{D[i]|vi属于V-S}</p>
+</li>
+<li><p> 将vk加入到S中，即S[vk]=true;</p>
+</li>
+<li><p>根据条件更新从v0出发到集合V-S上任一顶点的最短路径的长度，若条件D[K]+G.arcs[k] [i]&lt;D[i]成立，则更新D[i]=D[K]+G.arcs[k] [i],同时更改vi的前驱为vk;Path[i]=k。</p>
+</li>
+</ul>
+<p><strong>通俗理解迪杰斯特拉算法</strong></p>
+<p>1.迪杰斯特拉算法的第一步就是先创建3个数组或集合分别用来记录已访问的顶点(用V表示)，出发顶点到其余各顶点的距离(用D表示），和各顶点的前驱顶点(用P表示)<br>2.上面做好之后从出发顶点开始(如上图中的G就是出发顶点)，遍历出发顶点到其余各个顶点的距离(不直达可以用一个较大的整数表示)，然后把这些信息记录到第一步的3个数组或者集合中。<br>3.第三步，从第一步的记录距离的集合中选取一个没有被访问顶点且距离最小的顶点开始，继续遍历该顶点（如：顶点n，下面以n举例）到其他顶点(比如：下标为m的顶点，下面以m举例)的距离(已访问过的顶点除外)。得到从该顶点到<br>4.接着第3步，如果： 出发顶点到m的距离 + 从m到n的距离 &gt; 从出发顶点到n的距离(也就是距离表记录的距离) ，那么就把：出发顶点到m的距离 + 从m到n的距离 更新到距离表中，表示从出发顶点到n顶点的距离最小，同时更新第一步中的V数组和P数组（更新n为已访问顶点，更新m的前驱为n）<br>5.重复第3步和第4步，直到把集合V都更新为已访问为止。</p>
+<p>具体实例：某单位建设局域网需要铺设光缆，光缆连接的建筑物的位置、建筑物之间可以铺设光缆的线路及线路的长度如下图所示。问：如何铺设才能使光缆的总长度最短？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/542B8EE8DA1A21BA5C86DFABCEF26EBD.jpg" alt="542B8EE8DA1A21BA5C86DFABCEF26EBD"></p>
+<p>解：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/B88E2466556BEA0C3FF0C2980BF5CECB.jpg" alt="img"></p>
 <hr>
-<p> 2021年6月6日   星期日     晴</p>
+<p>2021年6月6日   星期日     晴</p>
 <p>​                                                                                     <strong>软件构造相关复习内容</strong></p>
 <p><strong>瀑布模型</strong></p>
 <p>瀑布模型把软件生命周期划分为八个阶段：问题的定义、可行性研究、软件需求分析、系统总体设计、详细设计、编码、测试和运行、维护，八个阶段又可归纳为三个大的阶段：计划阶段、开发阶段、运行阶段。</p>
@@ -239,4 +267,95 @@
 <p>还有标示类名的矩形表示类UML图用来表示类之间的关系</p>
 <p>类之间的关联用一根线表示，可以包括每个关联类的角色名、数目、方向和约束。泛化关系是指一端带有空心三角形的连线，绘制时从子类到父类，空心三角形一端是父类。有两种表示整体-部分的特殊关联-聚合和组合，聚合的整体端用空心菱形表示，组和的整体端用实心菱形表示。</p>
 <p>如图所示：<br><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/B9530988A6A02C479F050A937248F9F3.jpg" alt="img"></p>
-</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">cuiyankun</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yankuncui/yankuncui.github.io.git"><i class="fab fa-github"></i><span>YanKun's Blog</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/04/Swagger%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="Swagger实现增删改查"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Swagger实现增删改查"/></a><div class="content"><a class="title" href="/2021/06/04/Swagger%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="Swagger实现增删改查">Swagger实现增删改查</a><time datetime="2021-06-04T04:39:01.000Z" title="发表于 2021-06-04 12:39:01">2021-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/Swagger%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="Swagger的使用与配置"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Swagger的使用与配置"/></a><div class="content"><a class="title" href="/2021/06/03/Swagger%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="Swagger的使用与配置">Swagger的使用与配置</a><time datetime="2021-06-03T03:26:17.000Z" title="发表于 2021-06-03 11:26:17">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/Lombok%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Lombok的使用"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lombok的使用"/></a><div class="content"><a class="title" href="/2021/06/03/Lombok%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Lombok的使用">Lombok的使用</a><time datetime="2021-06-03T02:42:54.000Z" title="发表于 2021-06-03 10:42:54">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/mybatis%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" title="mybatis使用注解开发"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mybatis使用注解开发"/></a><div class="content"><a class="title" href="/2021/06/03/mybatis%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" title="mybatis使用注解开发">mybatis使用注解开发</a><time datetime="2021-06-02T23:49:46.000Z" title="发表于 2021-06-03 07:49:46">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/01/MyBatis-%E5%85%A5%E9%97%A8/" title="MyBatis 入门"><img src="https://upimage.alexhchu.com/2020/10/21/5fecb0b094b73.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MyBatis 入门"/></a><div class="content"><a class="title" href="/2021/06/01/MyBatis-%E5%85%A5%E9%97%A8/" title="MyBatis 入门">MyBatis 入门</a><time datetime="2021-06-01T11:56:40.000Z" title="发表于 2021-06-01 19:56:40">2021-06-01</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">10</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">23</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-04-10T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-06-07T12:59:42.376Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By cuiyankun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<p>接口：空心圆+直线（唐老鸭类实现了‘讲人话’）；<br>依赖：虚线+箭头（动物和空气的关系）；<br>关联：实线+箭头（企鹅需要知道气候才迁移）；<br>聚合：空心四边形+实线+箭头（雁群和大雁的关系）；<br>合成/组合：实心四边形+实线+箭头（鸟和翅膀的关系）；<br>泛化/继承：空心三角形+实线（动物和鸟的继承关系）；<br>实现：空心三角形+虚线（实现大雁飞翔的接口）；</p>
+<p>具体实例1：某一新闻管理系统主要用来发布新闻，管理员只有一个，登录后可以在后台发布新闻，任何人可以浏览新闻，浏览者可以注册成为系统会员，注册后可对新闻进行评论。管理员在后台可以对新闻、评论、注册会员进行管理，如修改删除等。</p>
+<p>要求：请画出该新闻管理系统的用例图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/1B604EAF3CA1F14B08CF421128D47527.jpg" alt="img"></p>
+<p>具体实例2： 为某企业建立一个人事管理系统。有以下需求：  总经理可创建部门、撤销部门、更改部门的名称、安排部门经理，也能对人员指派部门；  人事部门的工作人员可建立员工的人事档案，应包括身份证号、姓名、性别、出生日期等；  部门经理可为本部门添加新员工、确定员工的工资、也可解除本部门的特定员工；  员工可修改自己的个人信息，如联系电话、Email等，也可查看本部门的其他员工的信息。 根据以上描述，结合常识和逻辑推理，建立用例图来表示系统的功能。<br><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/967622144A91F5CEB210E8F601FE83DE.jpg" alt="img"></p>
+<p>具体实例3： 某大学教务部计划采用计算机管理学生选课的过程，以帮助管理人员更快、更好的做好选课管理工作。其功能如下：  教务处课程管理人员显示本学期可以选择的课程；  学生选课完毕后，学校的财务系统记录学生的缴费金额  在选定后的一段时间内，学生可以添加、删除选定的课程。  教师可以通过选课系统得到选修自己课程的学生名单。  学生和教师登录时需要验证。 在需求分析阶段，采用UML的用例图描述该系统的功能需求。  </p>
+<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/A757C163C83D781D8B81260B5A2D7043.jpg" alt="img"></p>
+<p><strong>GUI软件构造</strong></p>
+<p>在Swing中，窗口是一种容器类，而且是顶层容器类，顶层容器就是可以容纳其他容器或组件、本身可以独立显示、不依赖其他容器类的类，对话框是另一个与窗口类似的顶层容器类，对话框用于交互，菜单包括菜单条(JMenuBar)、菜单(JMenu)、菜单项(JMenuItem)，菜单条是一个是一个容器类，但不是顶层容器，工具条是一个容器类，可以放置各种常用的工具或组件</p>
+<p><strong>GUI基本设计规范</strong></p>
+<ul>
+<li>界面合理</li>
+<li>风格一致</li>
+<li>元素标准<ul>
+<li>窗口与对话框的标准</li>
+<li>菜单和工具条的标准</li>
+<li>图标的标准</li>
+<li>基本组件的标准</li>
+</ul>
+</li>
+</ul>
+<p><strong>GUI的设计原则</strong></p>
+<ol>
+<li>关注用户及其任务，而不是技术</li>
+<li>首先考虑功能，然后才是表示</li>
+<li>对任务的看法与用户保持一致</li>
+<li>设计要符合常见情况</li>
+<li>不要分散用户对目标的注意力</li>
+<li>促进学习</li>
+<li>传递信息，而不仅仅是数据</li>
+<li>设计应满足响应需求</li>
+<li>通过用户试用发现并改正错误</li>
+</ol>
+<p><strong>应用数据库</strong></p>
+<p>方法executeQuery<br>用于产生单个结果集的语句，例如 SELECT 语句。 被使用最多的执行 SQL 语句的方法是 executeQuery。这个方法被用来执行 SELECT 语句，它几乎是使用最多的 SQL 语句。 </p>
+<p>方法execute：<br>用于执行返回多个结果集、多个更新计数或二者组合的语句。因为多数程序员不会需要该高级功能 </p>
+<p>方法executeUpdate<br>用于执行 INSERT、UPDATE 或 DELETE 语句以及 SQL DDL（数据定义语言）语句，例如 CREATE TABLE 和 DROP TABLE。INSERT、UPDATE 或 DELETE 语句的效果是修改表中零行或多行中的一列或多列。executeUpdate 的返回值是一个整数，指示受影响的行数（即更新计数）。对于 CREATE TABLE 或 DROP TABLE 等不操作行的语句，executeUpdate 的返回值总为零。 </p>
+<p><strong>prepareStament与createStatement的区别</strong></p>
+<p>1：在概念上<br>prepareStatement会先初始化SQL，先把这个SQL提交到数据库中进行预处理，多次使用可提高效率。  </p>
+<p>createStatement不会初始化，没有预处理，每次都是从0开始执行SQL。</p>
+<p>2：在变量上</p>
+<p>prepareStatement可以在SQL中用?替换变量</p>
+<p>String sql = “insert into category values(null,?,?)”;</p>
+<p>createStatement不支持 ? 替换变量，只能在sql中拼接参数</p>
+<p>String sql = “delete from category where id = “ + id ;</p>
+<p> 3：功能上<br> 如果想要删除三条数据</p>
+<p> 对于createStatement，需要写三条语句<br>   String sql = “delete from category where id = 2” ;<br>   String sql = “delete from category where id = 3” ;<br>   String sql = “delete from category where id = 7” ;<br>   复制代码<br> 而prepareStatement，通过set不同数据只需要生成一次执行计划，可以重用</p>
+<p>   String sql = “delete from category where id = ？” ;</p>
+<p>1.PreparedStatement是预编译的,对于批量处理可以大大提高效率.也叫JDBC存储过程。</p>
+<p>2.使用createStatement 对象。在对数据库只执行一次性存取的时侯，用 createStatement对象进行处理。PreparedStatement对象的开销比createStatement大，对于一次性操作并不会带来额外的好处。</p>
+<p>3.createStatement每次执行sql语句，相关数据库都要执行sql语句的编译，preparedstatement是预编译得,preparedstatement支持批处理</p>
+<p>4:可重复性</p>
+<p>对于上面的两段代码而言：第一段 id 必须给定一个值</p>
+<p>而第二段中，对象的key，value都可以自己定义，而且大多数情况下这个语句已经被预编译过，因而当其执行时，只需DBMS运行SQL语句，而不必先编译。</p>
+<p>这种转换也给你带来很大的便利，不必重复SQL语句的句法，而只需更改其中变量的值，便可重新执行SQL语句。</p>
+<p>选择PreparedStatement对象与否，在于相同句法的SQL语句是否执行了多次，而且两次之间的差别仅仅是变量的不同。如果仅仅执行了一次的话，它应该和普通的对象毫无差异，体现不出它预编译的优越性。</p>
+<p>有关JAVA连接数据库的代码可以参考<a target="_blank" rel="noopener" href="https://yankuncui.github.io/2021/04/26/Java%E9%A1%B9%E7%9B%AE%E4%B9%8B%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">https://yankuncui.github.io/2021/04/26/Java%E9%A1%B9%E7%9B%AE%E4%B9%8B%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/</a></p>
+<p><strong>软件复用</strong></p>
+<p>软件复用是指在两次或多次不同的软件开发过程中重复使用相同或相近的软件或软件板块的过程。软件复用包括产品复用与过程复用</p>
+<p>软件复用的优点</p>
+<ol>
+<li>提高生产率</li>
+<li>减少维护代价</li>
+<li>提高互操作性</li>
+<li>支持快速原型</li>
+</ol>
+<p>软件复用应解决的三个问题</p>
+<ol>
+<li>必须有可复用的对象</li>
+<li>所复用的对象必须是有用的</li>
+<li>复用者需要知道如何使用被复用的对象</li>
+</ol>
+<p><strong>工厂模式</strong></p>
+<p>工厂方法模式（FACTORY METHOD）是一种常用的类创建型设计模式,此模式的核心精神是封装类中变化的部分，提取其中个性化善变的部分为独立类，通过依赖注入以达到解耦、复用和方便后期维护拓展的目的。它的核心结构有四个角色，分别是抽象工厂；具体工厂；抽象产品；具体产品</p>
+<p><strong>角色结构</strong></p>
+<p>抽象工厂(Creator)角色：是工厂方法模式的核心，与应用程序无关。任何在模式中创建的对象的工厂类必须实现这个接口。<br>具体工厂(Concrete Creator)角色：这是实现抽象工厂接口的具体工厂类，包含与应用程序密切相关的逻辑，并且受到应用程序调用以创建产品对象。<br>抽象产品(Product)角色：工厂方法模式所创建的对象的超类型，也就是产品对象的共同父类或共同拥有的接口。<br>具体产品(Concrete Product)角色：这个角色实现了抽象产品角色所定义的接口。某具体产品有专门的具体工厂创建，它们之间往往一一对应。</p>
+<p>工厂方法模式结构</p>
+<ul>
+<li>工厂是工厂方法模式的核心，它负责实现创建所有实例的内部逻辑。工厂类的创建产品类的方法可以被外界直接调用，创建所需的产品对象</li>
+<li>抽象产品是所创建的所有对象的父类，它负责描述所有实例所共有的公共接口</li>
+<li>具体产品是工厂模式的创建目标，所有创建的对象都是充当这个角色的某个具体类的实例</li>
+</ul>
+<p>工厂方法模式的实质就是一个工厂类根据传入的参数，动态决定应该创建哪一个产品类(这些产品类继承自一个父类或接口的实例)</p>
+<p>工厂方法的核心思想：简单工厂模式的核心思想就是：有一个专门的类来负责创建实例的过程。具体来说，把产品看着是一系列的类的集合，这些类是由某个抽象类或者接口派生出来的一个对象树。而工厂类用来产生一个合适的对象来满足客户的要求。如果简单工厂模式所涉及到的具体产品之间没有共同的逻辑，那么我们就可以使用接口来扮演抽象产品的角色；如果具体产品之间有功能的逻辑或，我们就必须把这些共同的东西提取出来，放在一个抽象类中，然后让具体产品继承抽象类。为实现更好复用的目的，共同的东西总是应该抽象出来的。</p>
+<p><strong>简单工厂模式的优缺点分析：</strong> </p>
+<p>   优点：工厂类是整个模式的关键所在。它包含必要的判断逻辑，能够根据外界给定的信息，决定究竟应该创建哪个具体类的对象。用户在使用时可以直接根据工厂类去创建所需的实例，而无需了解这些对象是如何创建以及如何组织的。有利于整个软件体系结构的优化。</p>
+<p>   缺点：由于工厂类集中了所有实例的创建逻辑，这就直接导致一旦这个工厂出了问题，所有的客户端都会受到牵连；而且由于简单工厂模式的产品室基于一个共同的抽象类或者接口，这样一来，但产品的种类增加的时候，即有不同的产品接口或者抽象类的时候，工厂类就需要判断何时创建何种种类的产品，这就和创建何种种类产品的产品相互混淆在了一起，违背了单一职责，导致系统丧失灵活性和可维护性。而且更重要的是，简单工厂模式违背了“开放封闭原则”，就是违背了“系统对扩展开放，对修改关闭”的原则，因为当我新增加一个产品的时候必须修改工厂类，相应的工厂类就需要重新编译一遍。</p>
+<hr>
+<p>2021年6月7日  星期一  晴</p>
+<p>​                                                                                      <strong>数据结构相关复习内容</strong></p>
+<hr>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">cuiyankun</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yankuncui/yankuncui.github.io.git"><i class="fab fa-github"></i><span>YanKun's Blog</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/06/04/Swagger%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="Swagger实现增删改查"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Swagger实现增删改查"/></a><div class="content"><a class="title" href="/2021/06/04/Swagger%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="Swagger实现增删改查">Swagger实现增删改查</a><time datetime="2021-06-04T04:39:01.000Z" title="发表于 2021-06-04 12:39:01">2021-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/Swagger%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="Swagger的使用与配置"><img src="https://upimage.alexhchu.com/2020/10/21/5fecb0b094b73.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Swagger的使用与配置"/></a><div class="content"><a class="title" href="/2021/06/03/Swagger%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/" title="Swagger的使用与配置">Swagger的使用与配置</a><time datetime="2021-06-03T03:26:17.000Z" title="发表于 2021-06-03 11:26:17">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/Lombok%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Lombok的使用"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lombok的使用"/></a><div class="content"><a class="title" href="/2021/06/03/Lombok%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Lombok的使用">Lombok的使用</a><time datetime="2021-06-03T02:42:54.000Z" title="发表于 2021-06-03 10:42:54">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/03/mybatis%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" title="mybatis使用注解开发"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mybatis使用注解开发"/></a><div class="content"><a class="title" href="/2021/06/03/mybatis%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" title="mybatis使用注解开发">mybatis使用注解开发</a><time datetime="2021-06-02T23:49:46.000Z" title="发表于 2021-06-03 07:49:46">2021-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/01/MyBatis-%E5%85%A5%E9%97%A8/" title="MyBatis 入门"><img src="https://upimage.alexhchu.com/2020/10/21/5fecb0b094b73.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MyBatis 入门"/></a><div class="content"><a class="title" href="/2021/06/01/MyBatis-%E5%85%A5%E9%97%A8/" title="MyBatis 入门">MyBatis 入门</a><time datetime="2021-06-01T11:56:40.000Z" title="发表于 2021-06-01 19:56:40">2021-06-01</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">10</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">23</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-04-10T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-06-08T02:54:00.215Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By cuiyankun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

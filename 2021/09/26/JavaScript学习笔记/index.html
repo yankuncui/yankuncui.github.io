@@ -1,0 +1,550 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScript学习笔记 | Champion</title><meta name="keywords" content="记忆"><meta name="author" content="cuiyankun"><meta name="copyright" content="cuiyankun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 什么是JavaScript1.1 概述JavaScript是一门世界上最流行的脚本语言 &#x3D;&#x3D;一个合格的后端人员，必须要精通JavaScript&#x3D;&#x3D; 1.2 历史https:&#x2F;&#x2F;blog.csdn.net&#x2F;kese7952&#x2F;article&#x2F;details&#x2F;79357868 ECMAScript它可以理解为是JavaScript的一个标准 最新版本已经到es版本 但是大部分浏览器还只停留再支持e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript学习笔记">
+<meta property="og:url" content="http://example.com/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Champion">
+<meta property="og:description" content="1. 什么是JavaScript1.1 概述JavaScript是一门世界上最流行的脚本语言 &#x3D;&#x3D;一个合格的后端人员，必须要精通JavaScript&#x3D;&#x3D; 1.2 历史https:&#x2F;&#x2F;blog.csdn.net&#x2F;kese7952&#x2F;article&#x2F;details&#x2F;79357868 ECMAScript它可以理解为是JavaScript的一个标准 最新版本已经到es版本 但是大部分浏览器还只停留再支持e">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg">
+<meta property="article:published_time" content="2021-09-26T08:08:40.000Z">
+<meta property="article:modified_time" content="2021-09-26T08:11:53.159Z">
+<meta property="article:author" content="cuiyankun">
+<meta property="article:tag" content="记忆">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaScript学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-26 16:11:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/tx.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-bell"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fa fa-address-card"></i><span> 简历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/math/"><i class="fa-fw fa fa-asterisk"></i><span> Math</span></a></li><li><a class="site-page child" href="/English/"><i class="fa-fw fa fa-font"></i><span> English</span></a></li><li><a class="site-page child" href="/politics/"><i class="fa-fw fa fa-book"></i><span> Politics</span></a></li><li><a class="site-page child" href="/408/"><i class="fa-fw fa fa-desktop"></i><span> FZE</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Champion</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-bell"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fa fa-address-card"></i><span> 简历</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/math/"><i class="fa-fw fa fa-asterisk"></i><span> Math</span></a></li><li><a class="site-page child" href="/English/"><i class="fa-fw fa fa-font"></i><span> English</span></a></li><li><a class="site-page child" href="/politics/"><i class="fa-fw fa fa-book"></i><span> Politics</span></a></li><li><a class="site-page child" href="/408/"><i class="fa-fw fa fa-desktop"></i><span> FZE</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaScript学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-26T08:08:40.000Z" title="发表于 2021-09-26 16:08:40">2021-09-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-26T08:11:53.159Z" title="更新于 2021-09-26 16:11:53">2021-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaScript学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-什么是JavaScript"><a href="#1-什么是JavaScript" class="headerlink" title="1. 什么是JavaScript"></a><strong>1. 什么是JavaScript</strong></h2><h3 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h3><p>JavaScript是一门世界上最流行的脚本语言</p>
+<p>==一个合格的后端人员，必须要精通JavaScript==</p>
+<h3 id="1-2-历史"><a href="#1-2-历史" class="headerlink" title="1.2 历史"></a>1.2 历史</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kese7952/article/details/79357868">https://blog.csdn.net/kese7952/article/details/79357868</a></p>
+<p><strong>ECMAScript</strong>它可以理解为是JavaScript的一个标准</p>
+<p>最新版本已经到es版本</p>
+<p>但是大部分浏览器还只停留再支持es5代码上，导致开发幻境和线上环境版本不一致</p>
+<h2 id="2-快速入门"><a href="#2-快速入门" class="headerlink" title="2. 快速入门"></a>2. 快速入门</h2><h3 id="2-1-引入JavaScript"><a href="#2-1-引入JavaScript" class="headerlink" title="2.1 引入JavaScript"></a>2.1 引入JavaScript</h3><ol>
+<li><p>内部标签</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;    &#x2F;&#x2F;...&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>外部引入</p>
+<p>test.js</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;...</span><br></pre></td></tr></table></figure>
+
+<p>test.html</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;test.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-2-基本语法入门"><a href="#2-2-基本语法入门" class="headerlink" title="2.2 基本语法入门"></a>2.2 基本语法入门</h3><p>浏览器调试</p>
+<p><img src="C:/Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20210521084621080.png" alt="image-20210521084621080"></p>
+<h3 id="2-3-数据类型"><a href="#2-3-数据类型" class="headerlink" title="2.3 数据类型"></a>2.3 数据类型</h3><p>数值，文本，图形，音频，视频</p>
+<p>==变量==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var $a &#x3D; 1 &#x2F;&#x2F;不要以数字开头var 农药 &#x3D; &quot;农药&quot;</span><br></pre></td></tr></table></figure>
+
+<p>==number==</p>
+<p>js不区分小数和整数， Number</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">123 &#x2F;&#x2F;整数123.1 &#x2F;&#x2F;浮点数123.11.123e3 &#x2F;&#x2F;科学计数法-99 &#x2F;&#x2F;负数NaN &#x2F;&#x2F;not a numberInfinity &#x2F;&#x2F;表示无限大</span><br></pre></td></tr></table></figure>
+
+<p>==字符串==</p>
+<p>‘abc’ “abc”</p>
+<p>==布尔值==</p>
+<p>true false</p>
+<p>==逻辑运算==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&amp;&amp; 两个都为真，结果为真|| 一个为真，结果为真！ 真即假 假即真</span><br></pre></td></tr></table></figure>
+
+<p>==比较运算==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x3D;&#x3D; 等于（只要值相等）&#x3D;&#x3D;&#x3D; 绝对等于（类型和值都要相等）</span><br></pre></td></tr></table></figure>
+
+<p>这是Js的缺陷， 坚持不要用==比较</p>
+<p>注意:</p>
+<ul>
+<li>NaN===NaN false</li>
+<li>通过isNaN(NaN)来判断这个数是否是NaN</li>
+</ul>
+<p>==浮点数问题==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log((1&#x2F;3)&#x3D;&#x3D;&#x3D;(1-2&#x2F;3)) &#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<p>尽量避免使用浮点数进行计算，存在精度问题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Math.abs(1&#x2F;3-(1-2&#x2F;3))&lt;0.0000001 &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<p>==null和undefined==</p>
+<ul>
+<li>null 空</li>
+<li>undefined 未定义</li>
+</ul>
+<p>==数组==</p>
+<p>java的数组必须是相同类型的对象，Js中不需要</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;保证代码的可读性 尽量使用[]var arr &#x3D; [1,2,3,true,null]new Array(1,2,3,true,null)</span><br></pre></td></tr></table></figure>
+
+<p>取数组下标：如果越界了 undefined</p>
+<p>==对象==</p>
+<p>对象是大括号，数组是中括号</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;    name: &quot;glj&quot;,    age: 23,    tags: [&#39;js&#39;, &#39;vue&#39;, &#39;css&#39;]&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-严格检查模式"><a href="#2-4-严格检查模式" class="headerlink" title="2.4 严格检查模式"></a>2.4 严格检查模式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &lt;title&gt;Title&lt;&#x2F;title&gt;    &lt;script&gt;        &#39;use strict&#39;;         let i &#x3D; 1; &#x2F;&#x2F;ES6才可以有let局部变量 控制台显示的开发者工具的会打印i，但要要测试输出会隐藏，                                              通过源代码页面的开发者工具可以测试输出        console.log(i);    &lt;&#x2F;script&gt;&lt;&#x2F;head&gt;&lt;body&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h2><h3 id="3-1-字符串"><a href="#3-1-字符串" class="headerlink" title="3.1 字符串"></a>3.1 字符串</h3><ol>
+<li>正常字符串我们使用单引号或者双引号包裹</li>
+<li>注意转义字符 \</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\&#39;\n\t\u4e2d unicode字符\x41 ASCII字符</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>多行字符串编写</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;tab键上面&#96;var msg &#x3D;     &#96;helloworld你好呀&#96;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>模板字符串</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let name &#x3D; &quot;qinjiang&quot;let age &#x3D; 3;let msg &#x3D; &#96;hello, $&#123;name&#125; &#123;age&#125;&#96;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>字符串的基本方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str.length &#x2F;&#x2F;不可以改变 注意与数组区别str.toUpperCase()str.indexOf(&#39;&#39;, offset)str.charAt()str.subString()</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-数组"><a href="#3-2-数组" class="headerlink" title="3.2 数组"></a>3.2 数组</h3><p>可以包含任意类型的数组</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [1,2.0,true,&quot;123&quot;]</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>数组的基本方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arr.length &#x2F;&#x2F;给arr.length赋值，数组大小会发生变化，多了为空，少了丢失arr.indexOf() &#x2F;&#x2F;字符串“1”和数值1不一样arr.slice()  &#x2F;&#x2F;类似于java里的subStringarr.push()  &#x2F;&#x2F;压入到尾部arr.pop()  &#x2F;&#x2F;弹出最后一个元素arr.unshift() &#x2F;&#x2F;压入到头部arr.shift() &#x2F;&#x2F;弹出第一个元素arr.reverse() &#x2F;&#x2F;反转arr.concat &#x2F;&#x2F;并没有修改数组 返回一个新的数组arr.join &#x2F;&#x2F;将数组使用特定的字符串链接 并没有修改数组</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-对象"><a href="#3-3-对象" class="headerlink" title="3.3 对象"></a>3.3 对象</h3><p>若干个键值对 {}, 用逗号隔开，最后一个属性不加逗号</p>
+<p>JavaScript中的所有键都是字符串 值是任意对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;    name: &quot;glj&quot;,    age: 23,    isGoodLooking: true&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>对象赋值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.nameperson.age</span><br></pre></td></tr></table></figure>
+
+<p>2.使用一个不存在的对象属性，不会报错！undefined</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.passwordundefined</span><br></pre></td></tr></table></figure>
+
+<p>3.动态的删减属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">delete person.isGoodLookingtrue</span><br></pre></td></tr></table></figure>
+
+<p>4.动态添加 直接添加即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.password &#x3D; 123</span><br></pre></td></tr></table></figure>
+
+<p>5.判断属性值是否再这个对象中 xxx in xxx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;age&#39; in persontrue&#x2F;&#x2F;继承 判断是否含有某个方法时只写方法名即可&#39;toString&#39; in persontrue&#39;toString()&#39; in personfalse</span><br></pre></td></tr></table></figure>
+
+<p>6.判断一个属性或方法是否是这个对象自身拥有的 hasOwnProperty</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.hasOwnProperty(&quot;toString&quot;)falseperson.hasOwnProperty(&quot;age&quot;)true</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-流程控制"><a href="#3-4-流程控制" class="headerlink" title="3.4 流程控制"></a>3.4 流程控制</h3><p>if 判断</p>
+<p>循环</p>
+<p>for循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let age &#x3D; [0,1,2,3,4,5,6,7,8,9];&#x2F;*for (let i &#x3D; 0; i &lt; age.length; i++) &#123;console.log(age[i]);&#125;*&#x2F;&#x2F;&#x2F;i是索引 age是对象for (var i in age) &#123;     if (i &#x3D;&#x3D; 9) &#123;         console.log(&#96; $&#123;i&#125; $&#123;age[i]&#125;&#96;);    &#125;&#125;for (var num of age) &#123;    console.log(num);  &#x2F;&#x2F;num是值&#125;</span><br></pre></td></tr></table></figure>
+
+<p>foreach循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arr.forEach(function (value) &#123;    console.log(value.name, value.password);&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-Set和Map"><a href="#3-5-Set和Map" class="headerlink" title="3.5 Set和Map"></a>3.5 Set和Map</h3><p>ES6的新特性~（Map, Set）</p>
+<p>Map</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;ES6 Mapvar map &#x3D; new Map([[&#39;tom&#39;,80],[&#39;jerry&#39;,90]])map.get(&#39;tom&#39;)map.set(&#39;glj&#39;)map.delete(&#39;tom&#39;) &#x2F;&#x2F;增加或者修改map.clear() &#x2F;&#x2F;清除</span><br></pre></td></tr></table></figure>
+
+<p>Set(无序不重复的集合)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set.add();set.delete();set.has();</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-iterator"><a href="#3-6-iterator" class="headerlink" title="3.6 iterator"></a>3.6 iterator</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let map &#x3D; new Map([[&#39;tom&#39;,80],[&#39;jerry&#39;,90]]) for (let i of map)&#123;    console.log(i);&#125;let set &#x3D; new Set([1,2,4,5])for (let i of set) &#123;    console.log(i);&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-函数"><a href="#4-函数" class="headerlink" title="4. 函数"></a>4. 函数</h2><h3 id="4-1-定义函数"><a href="#4-1-定义函数" class="headerlink" title="4.1 定义函数"></a>4.1 定义函数</h3><p>定义方式一：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function abs(x) &#123;    if (x&gt;&#x3D;0)&#123;        return x;    &#125; else &#123;        return -x;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有执行return，就是undefined</p>
+<p>定义方式二：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var abs &#x3D; function(x) &#123;    if (x&gt;&#x3D;0)&#123;        return x;    &#125; else &#123;        return -x;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>function(x){….}这是一个匿名函数，但是可以把结果赋值给abs，通过abs可以调用函数</p>
+<p>参数问题：javaScript可以传任意个参数，也可以不传递参数</p>
+<p>判断参数是否存在问题？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var abs &#x3D; function(x) &#123;    &#x2F;&#x2F;手动抛出异常来判断    if(typeof x!&#x3D;&#x3D; &#39;number&#39;) &#123;        throw &#39;Not a number&#39;;    &#125;    if (x&gt;&#x3D;0)&#123;        return x;    &#125; else &#123;        return -x;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题：arguments包含所有的参数，我们有时候想使用多余的参数来进行附加的操作。需要排除已有参数</p>
+<p>==rest==</p>
+<p>ES6新引入的，只能以…的形式写在最后</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if (arguments.length&gt;2) &#123;    for(let i &#x3D; 2; i &lt; arguments.length; i++) &#123;        &#x2F;&#x2F;to do    &#125;&#125;</span><br><span class="line">function num(a,b,...rest) &#123;    console.log(&quot;a&#x3D;&gt;&quot;+a);    console.log(&quot;b&#x3D;&gt;&quot;+b);    console.log(rest);&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-变量的作用域"><a href="#4-2-变量的作用域" class="headerlink" title="4.2 变量的作用域"></a>4.2 变量的作用域</h3><p>var定义的变量是有作用域的</p>
+<p>如果在函数体中声明，函数体 外使用，需要使用闭包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function qj() &#123;    var x &#x3D; 1;    x &#x3D; x + 1;&#125;x &#x3D; x + 3; &#x2F;&#x2F;x is not defined</span><br></pre></td></tr></table></figure>
+
+<p>内部函数可以访问外部函数的成员，反之则不行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function a() &#123;    var i &#x3D; 1;    function b() &#123;        var j &#x3D; i+1;    &#125;    i &#x3D; j+1; &#x2F;&#x2F;j is not defined&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内部函数变量和外部函数变量同名</p>
+<p>函数查找变量从自身函数开始，由内向外查找，遵循内部屏蔽外部的原则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function a() &#123;    var i &#x3D; 1;    function b() &#123;        var i &#x3D; 1;        console.log(i); &#x2F;&#x2F;i &#x3D; 1    &#125;    i &#x3D; i+1;    console.log(i); &#x2F;&#x2F; i &#x3D; 2    b();&#125;a();</span><br></pre></td></tr></table></figure>
+
+<p>提升变量的作用域</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function a() &#123;    var x &#x3D; &quot;x&quot;+y;    console.log(x);    var y &#x3D; &#39;y&#39;;&#125; &#x2F;&#x2F;输出：xundefined 说明js执行引擎，自动提升了y的声明，但不会对其赋值&#x2F;&#x2F;等同于以下代码 下面更规范function a() &#123;    var y;    var x &#x3D; &quot;x&quot;+y;    console.log(x);    y &#x3D; &#39;y&#39;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>全局对象 window</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; &#39;xxx&#39;alert(x)alert(window.x) &#x2F;&#x2F;默认所有的全局变量绑定在windows下</span><br></pre></td></tr></table></figure>
+
+<p>alert()这个函数本身也是一个window</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; &#39;xxx&#39;;window.alert(x);var old_alert &#x3D; window.alert;old_alert(x); &#x2F;&#x2F;alert这个函数也可以重写 使其失效&#x2F;&#x2F;javaScript实际上只有一个全局作用域，任何变量(函数也可以视为变量)使用时，一层一层向外查找，一直到全局下</span><br></pre></td></tr></table></figure>
+
+<p>==规范==</p>
+<p>由于我们的所有全局变量都会绑定到我们的window。如果不同的js文件，使用了相同的全局变量-&gt;冲突</p>
+<p>把自己的代码放入自定义的唯一空间名字中，解决全局命名冲突的问题</p>
+<p>jQuery</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;唯一全局变量var glj &#x3D; &#123;&#125;;&#x2F;&#x2F;定义全局变量glj.name &#x3D; &#39;glj&#39;;glj.add &#x3D; function(a,b) &#123;    return a + b;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>==局部作用域let==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function aaa() &#123;    for (var i &#x3D; 0; i &lt; 100; i++) &#123;        console.log(i);    &#125;    console.log(i); &#x2F;&#x2F;输出100&#125;function aaa() &#123;    for (let i &#x3D; 0; i &lt; 100; i++) &#123;        console.log(i);    &#125;    console.log(i); &#x2F;&#x2F;i is not defined&#125;</span><br></pre></td></tr></table></figure>
+
+<p>==常量const==</p>
+<p>在ES6之前，约定用大写字母命名的变量，建议不要修改</p>
+<p>在ES6引入了常量关键字const</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const PI &#x3D; &#39;3.14&#39;console.log(PI);PI &#x3D; &#39;123&#39;; &#x2F;&#x2F;不可重新赋值</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-方法"><a href="#4-3-方法" class="headerlink" title="4.3 方法"></a>4.3 方法</h3><p>方法就是把函数放在对象里面，对象只有属性和方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var glj &#x3D; &#123;    name: &#39;gong&#39;,    birth: 1997,    &#x2F;&#x2F;方法    age: function() &#123;        let now &#x3D; new Date().getFullYear();        return now-this.birth;    &#125;&#125;glj.age;&#x2F;&#x2F;属性glj.name&#x2F;&#x2F;方法一定要带上()glj.age()&#x2F;&#x2F;上下代码等效var glj &#x3D; &#123;    name: &#39;gong&#39;,    birth: 1997,    &#x2F;&#x2F;方法    age: getAge&#125;;function getAge() &#123;    let now &#x3D; new Date().getFullYear();    return now-this.birth;&#125;getAge() &#x2F;&#x2F;NaN 通过window调用不存在thisglj.age() &#x2F;&#x2F;24</span><br></pre></td></tr></table></figure>
+
+<p>==apply==</p>
+<p>在js中可以控制this指向</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">getAge.apply(glj,[]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-内部对象"><a href="#5-内部对象" class="headerlink" title="5. 内部对象"></a>5. 内部对象</h2><p>标准对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typeof true&quot;boolean&quot;typeof 123&quot;number&quot;typeof &#39;123&#39;&quot;string&quot;typeof NaN&quot;number&quot;typeof []&quot;object&quot;typeof Math&quot;object&quot;typeof Math.abs&quot;function&quot;typeof undefined&quot;undefined&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-1-Date"><a href="#5-1-Date" class="headerlink" title="5.1 Date"></a>5.1 Date</h3><p>get方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">now.getFullYear()2021now.getMonth()4now.getDate()22now.getDay()6now.getHours()13now.getMinutes()19now.getSeconds()39now.getMilliseconds()765now.getTime()1621660779765console.log(new Date(1621660779765))Sat May 22 2021 13:19:39 GMT+0800 (中国标准时间)</span><br></pre></td></tr></table></figure>
+
+<p>to方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">now.toDateString()&quot;Sat May 22 2021&quot;now.toGMTString()&quot;Sat, 22 May 2021 05:19:39 GMT&quot;now.toISOString()&quot;2021-05-22T05:19:39.765Z&quot;now.toJSON()&quot;2021-05-22T05:19:39.765Z&quot;now.toLocaleDateString()&quot;2021&#x2F;5&#x2F;22&quot;now.toLocaleString()&quot;2021&#x2F;5&#x2F;22下午1:19:39&quot;now.toLocaleTimeString()&quot;下午1:19:39&quot;</span><br></pre></td></tr></table></figure>
+
+<p>==json==</p>
+<ul>
+<li>(<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JavaScript">JavaScript</a> Object Notation, JS 对象简谱) 是一种轻量级的数据交换格式。</li>
+<li>简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。</li>
+<li>易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。</li>
+</ul>
+<p>在js中一切皆对象、任何js支持的类型都可以用JSON来表示</p>
+<p>json字符串和js对象的住转换</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user &#x3D; &#123;    name: &#39;glj&#39;,    age: 24,    sex: &#39;男&#39;&#125;&#x2F;&#x2F;对象转换为json字符串var jsonUser &#x3D; JSON.stringify(user);var obj &#x3D; JSON.parse(&#39;&#123;&quot;name&quot;:&quot;glj&quot;,&quot;age&quot;:3,&quot;sex&quot;:&quot;男&quot;&#125;&#39;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6. 面向对象"></a>6. 面向对象</h2><p>js、java、c#</p>
+<ul>
+<li>类：模板 原型对象</li>
+<li>对象：具体的实例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let student &#x3D; &#123;    name: &quot;glj&quot;,    age: 3,    run: function () &#123;        console.log(this.name + &quot; run...&quot;);    &#125;&#125;;let xiaoming &#x3D; &#123;    name: &quot;xiaoming&quot;&#125;;xiaoming.__proto__ &#x3D; student;console.log(xiaoming.run());let bird &#x3D; &#123;    run: function () &#123;        console.log(this.name + &quot; fly...&quot;)    &#125;&#125;;xiaoming.__proto__ &#x3D; bird;console.log(xiaoming.run());</span><br><span class="line">function Student(name) &#123;    this.name &#x3D; name;&#125;&#x2F;&#x2F;给student新增一个方法Student.prototype.hello &#x3D; function() &#123;    alert(&#39;hello&#39;);&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>==class继承==</p>
+<p>ES6引入的</p>
+<ol>
+<li>定义一个类，属性，方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个学生类class Student&#123;    constructor(name) &#123;        this.name &#x3D; name;    &#125;    hello() &#123;        alert(&#39;hello&#39;)    &#125;&#125;var xiaoming &#x3D; new Student(&quot;xiaoming&quot;);var xiaohong &#x3D; new Student(&quot;xiaohong&quot;);xiaoming.hello();</span><br></pre></td></tr></table></figure>
+
+<p>2.继承</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class PrimaryStudent extends Student&#123;    constructor(name, age) &#123;        super(name);        this.age &#x3D; age;    &#125;    mtAge() &#123;        alert(this.age)    &#125;&#125;let xiaofang &#x3D; new PrimaryStudent(&quot;xiaofang&quot;, 23);xiaofang.mtAge();</span><br></pre></td></tr></table></figure>
+
+<p>==原型链==</p>
+<p><img src="C:/Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20210522150624036.png" alt="image-20210522150624036"></p>
+<h2 id="7-操作BOM对象"><a href="#7-操作BOM对象" class="headerlink" title="7. 操作BOM对象"></a>7. 操作BOM对象</h2><blockquote>
+<p>浏览器介绍</p>
+</blockquote>
+<p>BOM: 浏览器对象模型</p>
+<ul>
+<li>IE</li>
+<li>Chrome</li>
+<li>Safari</li>
+<li>FireFox Linux</li>
+</ul>
+<p>三方</p>
+<ul>
+<li>qq浏览器</li>
+<li>360浏览器</li>
+</ul>
+<blockquote>
+<p>window</p>
+</blockquote>
+<p>window代表浏览器窗口</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.alert(1)undefinedwindow.innerHeight588window.innerWidth349window.outerHeight708window.outerWidth1050</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Navigator</p>
+</blockquote>
+<p>Navigator封装了浏览器的信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">navigator.appCodeName&quot;Mozilla&quot;navigator.appName&quot;Netscape&quot;navigator.appVersion&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;90.0.4430.212 Safari&#x2F;537.36&quot;navigator.userAgent&quot;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;90.0.4430.212 Safari&#x2F;537.36&quot;navigator.platform&quot;Win32&quot;</span><br></pre></td></tr></table></figure>
+
+<p>大多数时候我们不会使用<code>navigator</code>对象,因为会被人为修改</p>
+<blockquote>
+<p>screen</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">screen.width1366screen.height768</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>==location==</p>
+</blockquote>
+<p>location代表当前的URL信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">host:&quot;www.baidu.com&quot;href:&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;&quot;protocol:&quot;https:&quot;reload:f reload() &#x2F;&#x2F;刷新网页&#x2F;&#x2F;设置新的地址location.assign(&quot;https:&#x2F;&#x2F;blog.kuangstudy.com&#x2F;&quot;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>document</p>
+</blockquote>
+<p>document代表当前的页面， HTML DOM文档树</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.title&quot;百度一下你就知道&quot;document.title &#x3D; &quot;glj&quot;&quot;glj&quot;</span><br></pre></td></tr></table></figure>
+
+<p>获取具体的文档树节点</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dl id&#x3D;&quot;app&quot;&gt;    &lt;dt&gt;Java&lt;&#x2F;dt&gt;    &lt;dd&gt;javaSE&lt;&#x2F;dd&gt;        &lt;dd&gt;javaEE&lt;&#x2F;dd&gt;&lt;&#x2F;dl&gt;&lt;script&gt;    let dl &#x3D; document.getElementById(&#39;app&#39;);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>获取cookie</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.cookie&quot;Hm_lvt_933ac4bd0bde2a20ee7ab14987d36fe4&#x3D;1621649053,1621650056,1621650352,1621651689; Hm_lpvt_933ac4bd0bde2a20ee7ab14987d36fe4&#x3D;1621676761&quot;</span><br></pre></td></tr></table></figure>
+
+<p>劫持cookie原理</p>
+<p>当你登录淘宝的时候 你的天猫也会登录 当清除cookie的时候登录信息就没了</p>
+<p>服务器端可以设置cookie只读: httpOnly</p>
+<blockquote>
+<p>history</p>
+</blockquote>
+<p>代表浏览器的记录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">history.back() &#x2F;&#x2F;后退history.forward() &#x2F;&#x2F;前进</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-操作DOM对象"><a href="#8-操作DOM对象" class="headerlink" title="8. 操作DOM对象"></a>8. 操作DOM对象</h2><p>浏览器网页就是一个Dom的树形结构</p>
+<ul>
+<li>更新：更新Dom节点</li>
+<li>遍历dom节点：得到dom节点</li>
+<li>删除：删除一个dom节点</li>
+<li>添加：添加一个dom节点</li>
+</ul>
+<blockquote>
+<p>获得dom节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对应css的选择器var h1 &#x3D; document.getElementsByTagName(&#39;h1&#39;);var p1 &#x3D; document.getElementById(&#39;p1&#39;);var p2 &#x3D; document.getElementsByClassName(&#39;p2&#39;);var father &#x3D; document.getElementById(&#39;father&#39;);var childrens &#x3D; father.children;&#x2F;&#x2F;father.firstChild father.firstElementChild&#x2F;&#x2F;father.lastchild father.lastElementChild</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更新节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;id1&quot;&gt;&lt;&#x2F;div&gt;&lt;script&gt;    var id1&#x3D;document.getElementById(&#39;id1&#39;);    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>操作文本</p>
+<ul>
+<li><code>id1.innerText=&#39;456&#39;</code>修改文本的值 (覆盖掉原来的节点 )</li>
+<li><code>id1.innerHTML=&#39;&lt;strong&gt;123&lt;/strong&gt;&#39;</code>可以解析HTML文本标签</li>
+</ul>
+<p>操作css</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">id1.style.color &#x3D; &#39;red&#39;id1.style.fontSize &#x3D; &#39;50px&#39; - 转 驼峰命名id1.style.padding &#x3D; &#39;2em&#39;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除节点</p>
+</blockquote>
+<p>步骤: 先获取父节点,再2通过父节点删除自己</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;father&quot;&gt;    &lt;h1&gt;标题一&lt;&#x2F;h1&gt;    &lt;p id&#x3D;&quot;p1&quot;&gt;p1&lt;&#x2F;p&gt;    &lt;p id&#x3D;&quot;p2&quot;&gt;p2&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;&lt;script&gt;    var self &#x3D; document.getElementById(&#39;p1&#39;);    var father &#x3D; p1.parentElement;    father.removeCHild(self);    &#x2F;&#x2F;删除是一个动态的过程    father.removeChild(father.children[0]);    father.removeChild(father.children[0]);    father.removeChild(father.children[0]);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>插入节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;js&quot;&gt;Js&lt;&#x2F;p&gt;&lt;div id&#x3D;&quot;list&quot;&gt;    &lt;p id&#x3D;&quot;se&quot;&gt;se&lt;&#x2F;p&gt;    &lt;p id&#x3D;&quot;ee&quot;&gt;ee&lt;&#x2F;p&gt;&lt;&#x2F;div&gt;&lt;script&gt;  var js &#x3D; document.getElementById(&#39;js&#39;);  var list &#x3D; document.getElementById(&#39;list&#39;);  list.appendChild(js); &#x2F;&#x2F;追加 不覆盖&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建一个新的标签，实现插入</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;  var js &#x3D; document.getElementById(&#39;js&#39;);&#x2F;&#x2F;已经存在的节点  var list &#x3D; document.getElementById(&#39;list&#39;);  list.appendChild(js);  &#x2F;&#x2F;创建一个新的节点  var newP &#x3D; document.createElement(&#39;p&#39;);  newP.id &#x3D; &#39;newP&#39;;  newP.innerText &#x3D; &quot;spring&quot;;  var myscript &#x3D; document.createElement(&#39;script&#39;);  myscript.setAttribute(&#39;type&#39;, &#39;text&#x2F;javascript&#39;);  &#x2F;&#x2F;把body变色  var myStyle &#x3D;document.createElement(&#39;style&#39;);  myStyle.setAttribute(&#39;type&#39;,&#39;text&#x2F;css&#39;);  myStyle.innerHTML&#x3D;&#39;body&#123;background-color: chartreuse&#125;&#39;;  document.getElementsByTagName(&#39;head&#39;[0]).appendChild(myStyle);&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>insert</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var js &#x3D; document.getElementById(&#39;js&#39;);var list &#x3D; document.getElementById(&#39;list&#39;);var ee &#x3D; document.getElementById(&#39;ee&#39;);list.insertBefore(js,ee);</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-操作表单（jQuery）"><a href="#9-操作表单（jQuery）" class="headerlink" title="9. 操作表单（jQuery）"></a>9. 操作表单（jQuery）</h2><ul>
+<li>文本框 text</li>
+<li>下拉框 select</li>
+<li>单选框 radio</li>
+<li>多选框 checkbox</li>
+<li>隐藏域 hidden</li>
+<li>密码框 password</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>获得提交的信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;form action&#x3D;&quot;post&quot;&gt;    &lt;p&gt;        &lt;span&gt;用户名：&lt;&#x2F;span&gt;&lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;username&quot;&gt;    &lt;&#x2F;p&gt;    &lt;p&gt;        &lt;span&gt;性别：&lt;&#x2F;span&gt;        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;man&quot; id&#x3D;&quot;boy&quot;&gt;男        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;sex&quot; value&#x3D;&quot;woman&quot; id&#x3D;&quot;girl&quot;&gt;女    &lt;&#x2F;p&gt;&lt;&#x2F;form&gt;&lt;script&gt;    var inputText &#x3D; document.getElementById(&quot;username&quot;);    &#x2F;&#x2F;inputText.value 获取&#x2F;设置值    var boy &#x3D; document.getElementById(&#39;boy&#39;);    var girl &#x3D; document.getElementById(&#39;girl&#39;);    &#x2F;&#x2F;girl.checked用来判断是否选中框&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>jQuery cdn 在线 $(‘selector’).action()</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;    &lt;a href&#x3D;&quot;http:&#x2F;&#x2F;www.baidu.com&quot; id&#x3D;&quot;test-jquery&quot;&gt;点我&lt;&#x2F;a&gt;&lt;&#x2F;body&gt;&lt;script&gt;    &#x2F;&#x2F;选择器就是css选择器    $(&#39;#test-jquery&#39;).click(function () &#123;        alert(&#39;hello jQuery&#39;);    &#125;)&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>选择器</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;原生的js代码document.getElementById();document.getElementsByClassName();document.getElementsByTagName();&#x2F;&#x2F;jQuery$(&#39;#id&#39;).click();$(&#39;.class&#39;).click();$(&#39;tag&#39;).click();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>事件</p>
+</blockquote>
+<p>鼠标事件 键盘事件 其他事件</p>
+<p>文档工具地址：<a target="_blank" rel="noopener" href="http://jquery.cuishifeng.cn/">http://jquery.cuishifeng.cn/</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;&lt;!--获取当前鼠标的坐标--&gt;mouse: &lt;span id&#x3D;&quot;location&quot;&gt;&lt;&#x2F;span&gt;&lt;div id&#x3D;&quot;move&quot;&gt;    在这里移动&lt;&#x2F;div&gt;&lt;script&gt;    &#x2F;&#x2F;当网页元素加载完毕后，响应事件    $(function () &#123;        $(&#39;#move&#39;).mousemove(function (e) &#123;            $(&#39;#location&#39;).text(&#39;x:&#39;+e.pageX + &#39;y:&#39; + e.pageY);        &#125;)    &#125;);&lt;&#x2F;script&gt;&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>操作DOM</p>
+</blockquote>
+<p>节点操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&#39;#test-ul li[name&#x3D;python]&#39;).text()$(&#39;#test-ul li[name&#x3D;python]&#39;).text(&#39;设置值&#39;)$(&#39;#test-ul li[name&#x3D;python]&#39;).html()$(&#39;#test-ul li[name&#x3D;python]&#39;).html(&#39;设置值&#39;)$(&#39;#test-ul li[name&#x3D;python]&#39;).show()&#x2F;&#x2F;显示$(&#39;#test-ul li[name&#x3D;python]&#39;).hide()&#x2F;&#x2F;隐藏$(&#39;#test-ul li[name&#x3D;python]&#39;).toggle()&#x2F;&#x2F;显示隐藏切换</span><br></pre></td></tr></table></figure>
+
+<p>标签：<em>js笔记</em></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">cuiyankun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">http://example.com/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Champion</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%B0%E5%BF%86/">记忆</a></div><div class="post_share"><div class="social-share" data-image="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/09/13/JS%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/"><img class="next-cover" src="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS常用函数大全</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/09/13/JS常用函数大全/" title="JS常用函数大全"><img class="cover" src="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-13</div><div class="title">JS常用函数大全</div></div></a></div><div><a href="/2021/05/31/前端页面英文释义/" title="前端页面英文释义"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-31</div><div class="title">前端页面英文释义</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">livere</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">cuiyankun</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yankuncui/yankuncui.github.io.git"><i class="fab fa-github"></i><span>YanKun's Blog</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFJavaScript"><span class="toc-number">1.</span> <span class="toc-text">1. 什么是JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8E%86%E5%8F%B2"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">2.</span> <span class="toc-text">2. 快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5JavaScript"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 引入JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 基本语法入门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E4%B8%A5%E6%A0%BC%E6%A3%80%E6%9F%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 严格检查模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E7%BB%84"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 流程控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Set%E5%92%8CMap"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 Set和Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-iterator"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 iterator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">4. 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 变量的作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%96%B9%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%86%85%E9%83%A8%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">5. 内部对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Date"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 Date</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">6. 面向对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%93%8D%E4%BD%9CBOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">7. 操作BOM对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%93%8D%E4%BD%9CDOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.</span> <span class="toc-text">8. 操作DOM对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%93%8D%E4%BD%9C%E8%A1%A8%E5%8D%95%EF%BC%88jQuery%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">9. 操作表单（jQuery）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JavaScript学习笔记"><img src="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记"/></a><div class="content"><a class="title" href="/2021/09/26/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JavaScript学习笔记">JavaScript学习笔记</a><time datetime="2021-09-26T08:08:40.000Z" title="发表于 2021-09-26 16:08:40">2021-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/13/JS%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/" title="JS常用函数大全"><img src="https://upimage.alexhchu.com/2020/10/21/f5ac68ddaaf64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS常用函数大全"/></a><div class="content"><a class="title" href="/2021/09/13/JS%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/" title="JS常用函数大全">JS常用函数大全</a><time datetime="2021-09-13T02:25:18.000Z" title="发表于 2021-09-13 10:25:18">2021-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/09/Ajax%E5%92%8CJson/" title="Ajax和Json"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ajax和Json"/></a><div class="content"><a class="title" href="/2021/09/09/Ajax%E5%92%8CJson/" title="Ajax和Json">Ajax和Json</a><time datetime="2021-09-09T11:28:26.000Z" title="发表于 2021-09-09 19:28:26">2021-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/03/AOP/" title="AOP"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AOP"/></a><div class="content"><a class="title" href="/2021/09/03/AOP/" title="AOP">AOP</a><time datetime="2021-09-03T08:18:32.000Z" title="发表于 2021-09-03 16:18:32">2021-09-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/06/26/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" title="SSM框架整合"><img src="https://upimage.alexhchu.com/2020/10/21/671e773d973ae.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM框架整合"/></a><div class="content"><a class="title" href="/2021/06/26/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" title="SSM框架整合">SSM框架整合</a><time datetime="2021-06-26T06:59:44.000Z" title="发表于 2021-06-26 14:59:44">2021-06-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By cuiyankun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'c99pOmUa6gV4G4GnPT9kzXs9-gzGzoHsz',
+      appKey: 'Vwv6hPmgLRpyMvF5OpKF6tE6',
+      placeholder: '请留下你的评论',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

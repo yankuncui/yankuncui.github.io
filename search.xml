@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>数据链路层知识点总结</title>
-      <link href="2021/11/07/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-      <url>2021/11/07/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+      <title>IP数据报分片</title>
+      <link href="2021/11/27/IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87/"/>
+      <url>2021/11/27/IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt="数据链路层"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="IP数据报分片问题"><a href="#IP数据报分片问题" class="headerlink" title="IP数据报分片问题"></a>IP数据报分片问题</h1><p>例：一个数据报数据部分为3800字节，规定分片长度不超过1420字节，首部为20字节，每个分片数据部分不超过1400字节(MTU为最大传输单元，包括首部和数据部分)</p><p>IP数据报=首部+数据部分</p><p>MF位代表后面还有没有分片只有最后一片为0，DF位代表能否分片，等于1不能分片，等于0能分片，片偏移起始数据除以8</p><p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/HB1B%5DB%5DUT6G~_9LZ%5D$71L5W.png" alt="img"></p>]]></content>
       
       
       <categories>
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> 计网数链 </tag>
+            <tag> 计算 </tag>
             
         </tags>
       
@@ -29,11 +29,11 @@
     
     
     <entry>
-      <title>物理层知识点总结</title>
-      <link href="2021/11/07/%E7%89%A9%E7%90%86%E5%B1%82%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-      <url>2021/11/07/%E7%89%A9%E7%90%86%E5%B1%82%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+      <title>子网划分问题</title>
+      <link href="2021/11/27/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"/>
+      <url>2021/11/27/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/%E7%89%A9%E7%90%86%E5%B1%82%20(2).png" alt="物理层 (2)"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="子网划分问题"><a href="#子网划分问题" class="headerlink" title="子网划分问题"></a>子网划分问题</h1><p>划分子网号要在主机号上进行划分</p><p>IP地址划分为网络号+子网号+主机号</p><p>子网掩码：网络号和子网号全为1，主机号全0</p><p>例：某单位C类网络200.1.1.0，现准备为4个部门划分子网，4个部门的主机数分别为A-71台，B-34台，C-21台，D-17台，即共有143台主机。</p><p>(1)给出一种可能的子网掩码安排来进行子网划分。</p><p>(2)如果部门D的主机数目增长到34台，该单位又如何划分子网。</p><p>解：(1)给A部门分配子网号为0，剩下七位为主机号，分配了2的7次方128台满足题意；B部门分配子网号为10，剩下6位为主机号，分配了2的6次方64台满足题意；C部门分配子网号为110，剩下5位为主机号，分配了2的5次方32台满足题意；D部门分配子网号为111，剩下5位为主机号，分配了2的5次方32台满足题意。相应的的子网掩码为255.255.255.128，255.255.255192，255.255.255.224。</p><p>(2)给A部门分配子网号为01与001，对应分别为64台与32台共96台满足题意；B部门分配子网号为10，剩下6位为主机号，分配了2的6次方64台满足题意；C部门分配子网号为000，剩下5位为主机号，分配了2的5次方32台满足题意；D部门分配子网号为11，剩下6位为主机号，分配了2的6次方64台满足题意；相应的的子网掩码为255.255.255192，255.255.255.224。</p>]]></content>
       
       
       <categories>
@@ -45,7 +45,7 @@
       
         <tags>
             
-            <tag> 计网物理层 </tag>
+            <tag> 计算 </tag>
             
         </tags>
       
@@ -54,11 +54,36 @@
     
     
     <entry>
-      <title>计算机网络概述知识点总结</title>
-      <link href="2021/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-      <url>2021/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+      <title>CPU与存储器的连接</title>
+      <link href="2021/11/27/CPU%E4%B8%8E%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5/"/>
+      <url>2021/11/27/CPU%E4%B8%8E%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0%20(1).png" alt="计算机网络概述 (1)"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="CPU与存储器的连接"><a href="#CPU与存储器的连接" class="headerlink" title="CPU与存储器的连接"></a>CPU与存储器的连接</h1><p>例：设CPU有16根地址线，8根数据线，并用MREQ作访存控制信号(低电平有效)，WR用做读写控制信号(高电平为读，低电平为写)。现有如下存储芯片：1K x4位RAM；4K x8位RAM；8K x8位RAM；2K x8位ROM；4K x8位ROM；8K x8位ROM以及74LS138译码器和各种门电路，画出CPU与存储器的连接图</p><p>要求</p><p>(1)主存地址空间分配：</p><p>​    6000H ~67FFH为系统程序区；</p><p>​    6800H ~6BFFH为用户程序区。</p><p>(2)合理选用上述存储芯片，说明各选几片？</p><p>(3)详细画出存储芯片的片选逻辑图</p><p>解：上述地址空间分配用二进制表示如下：</p><p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/A8887CB7C5226D8D9441A4C835A3A01E.jpg" alt="img"></p><p>系统程序区只读不写，所以用ROM，用户程序区可读可写，所以用RAM，根据数据变化，A15-A11数据未变化，我们只用11根，也就是2的11次方，也就是2K，也就是需要2K x8位的ROM，所以直接选用2K x8位的ROM芯片。注意：ROM需要接地。同理，A15-A10数据未变化，我们只用10根，也就是2的10次方，也就是1K，也就是需要1K x8位的RAM，查看芯片选择，需要进行位扩展，需要两片1K x4位的RAM芯片。</p><p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/0089F16EF71552F6EB44CF8D94BA1E46.jpg" alt="img"></p><p>A14始终都是1高电平有效，所以将其连接在G1上，A15始终都是0，可以将其连接在G2A或G2B上，由于MREQ低电平有效将其连接在G2B上，判断是否为RAM还是ROM只与A11有关，A11是0就是ROM，A11是1就是RAM，所以将对应的A11、A12、A13依次连接A、B、C。A13A12A11为100时数字为4，此时ROM运作，A13A12A11为101时数字为5，此时RAM运作</p><p>例：用2K x16位/片的SRAM存储器芯片设计一个8K x32位的存储器，已知地址总线为A0-A12，数据总线为D0-D31，WE为读写控制信号。</p><p>问：</p><p>(1)共需几片芯片构成存储器</p><p>(2)画出该存储器芯片级逻辑图</p><p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/C9E675BD2678A2038004A00854A5DA11.jpg" alt="img"></p><p>注：该题需要进行字位扩展。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计组 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 作图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CRC校验码的计算</title>
+      <link href="2021/11/27/CRC%E6%A0%A1%E9%AA%8C%E7%A0%81%E7%9A%84%E8%AE%A1%E7%AE%97/"/>
+      <url>2021/11/27/CRC%E6%A0%A1%E9%AA%8C%E7%A0%81%E7%9A%84%E8%AE%A1%E7%AE%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="循环冗余码的计算"><a href="#循环冗余码的计算" class="headerlink" title="循环冗余码的计算"></a>循环冗余码的计算</h1><p>例：生成多项式为P(x)=x^3+x^2+1,信息位M为101001，求循环冗余码？</p><p>求解此题分四步进行：</p><p>1.根据多项式P(x)确定除数</p><p>P(x)=x^3+x^2+1  =&gt;除数1101</p><p>2.根据生成多项式的P(x)的最高阶补0</p><p>P(x)=x^3+x^2+1  最高阶为3，则信息位后部3个0  =&gt;101001000</p><p>3.让信息位(补0后)与除数做异或运算得到余数</p><p><img src="https://cdn.jsdelivr.net/gh/yankuncui/pictures/img/42E47F9CC37B29451A4B3B3E09F8DC73.jpg" alt="img"></p><p>异或运算规则：1 ^ 1=0 ,1 ^ 0=1,0 ^ 1=1,0 ^ 0=0</p><p>4.得到的余数补全位数，放在原信息位后</p><p>余数1补全位后就是001，所以放在原信息位后就是101001001</p><p>所以CRC校验码为101001001</p>]]></content>
       
       
       <categories>
@@ -70,7 +95,7 @@
       
         <tags>
             
-            <tag> 计网概述 </tag>
+            <tag> 计算 </tag>
             
         </tags>
       
